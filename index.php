@@ -79,8 +79,7 @@
       <div style="float: left">
         <h4>Contact Info</h4>
         <p>email</p>
-        <p>email</p>
-        <p>email</p>
+        <p>phone</p>
 
       </div>
       <div style="float=right">
