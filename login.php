@@ -7,12 +7,13 @@
 	<div align="center" style="padding-top:40px">
 	<table border="0">
 	<tr>
-		<td> <p> Username: </p> </td>
+		<td> <p> email: </p> </td>
 		<td> <input type="text" name="userfield"/> </td>
 	</tr>
 	<tr>
 		<td> <p> Password: </p> </td>
 		<td> <input type="password" name="passfield"/> </td>
+		<td> <a href="./forgetpass.php"> Forgot Password </a>
 	</tr>
 	</table>
 	<table border="0">

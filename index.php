@@ -11,12 +11,12 @@
         <a class="logo" href="#" style="text-decoration: none;font-size: 24px;width: 200px; float: left;"><b>Travel.com</b></a>
 
         <ul style="width: 800px;float:left;list-style:none;text-align: right;">
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Home</a></li>
+          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="./index.php">Home</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Places</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Holiday Packages</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Contact</a></li>
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Login</a></li>
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Sign UP</a></li>
+          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="./login.php">Login</a></li>
+          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="./register.php">Sign UP</a></li>
 
         </ul>
 
