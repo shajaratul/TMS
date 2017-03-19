@@ -5,6 +5,7 @@
 
 <body>
 	<div align="center" style="padding-top:40px">
+	<h1> Log in </h1>
 	<table border="0">
 	<tr>
 		<td> <p> email: </p> </td>
