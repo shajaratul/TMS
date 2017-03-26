@@ -53,7 +53,7 @@
 			<tbody>
 				<tr>
 					<td>
-					<form>
+					<form action="./booking.php">
 						<div style="padding-left:20px;padding-right:20px">
 							<img width=80% src="images/deluxe-double-room.jpg" />
 							<h4>DELUXE DOUBLE BEDROOM</h4>
@@ -69,7 +69,7 @@
 					</td>
 
 					<td>
-					<form>
+					<form action="./booking.php">
 						<div style="padding-left:20px;padding-right:20px">
 							<img width=80% src="images/luxury-suite.jpg" />
 							<h4>LUXURY SUITE</h4>
@@ -85,17 +85,19 @@
 					</td>
 
 					<td>
-					<div style="padding-left:20px;padding-right:20px">
-						<img width=80% src="images/royal-suite.jpg" />
-						<h4>ROYAL SUITE</h4>
-						<h5>Pool & Jacuzzi Suite</h5>
-						<p> Capacity: 5 person </p>
-						<h3> Price: tk.55,000/- per night </h3>							
-						<div style="float:right;padding-right:80px">
-								<input type="button" value="read more"/>
-								<input type="submit" value="Book"/>
+					<form action="./booking.php">
+						<div style="padding-left:20px;padding-right:20px">
+							<img width=80% src="images/royal-suite.jpg" />
+							<h4>ROYAL SUITE</h4>
+							<h5>Pool & Jacuzzi Suite</h5>
+							<p> Capacity: 5 person </p>
+							<h3> Price: tk.55,000/- per night </h3>							
+							<div style="float:right;padding-right:80px">
+									<input type="button" value="read more"/>
+									<input type="submit" value="Book"/>
+							</div>
 						</div>
-					</div>
+					</form>
 					</td>
 				</tr>
 
