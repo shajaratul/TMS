@@ -24,8 +24,9 @@
 	</tr>
 	<tr colspan="2" align="center">
 		<td> Don't have an account?
-		<a href="./register.php"> Click here to register </a> </td>
+		<a href="signup.php"> Click here to register </a> </td>
 	</tr>
 	</table>
 	</div>
 </body>
+
