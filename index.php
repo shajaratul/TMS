@@ -11,12 +11,14 @@
         <a class="logo" href="#" style="text-decoration: none;font-size: 24px;width: 200px; float: left;"><b>Travel.com</b></a>
 
         <ul style="width: 800px;float:left;list-style:none;text-align: right;">
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Home</a></li>
+
+          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="index.php">Home</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Places</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Holiday Packages</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Contact</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="login.php">Login</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="signup.php">Sign UP</a></li>
+
 
         </ul>
 
@@ -81,8 +83,9 @@
         <p>email</p>
         <p>phone</p>
 
-      </div>
+
       <div style="float:right">
+
         <ul style="list-style: none;">
           <li><a href= "www.facebook.com/travel:" ><img src="images/facebook.png"></a></li>
           <li><a href= "www.twitter.com/travel:" ><img src="images/twitter.png"></a></li>
