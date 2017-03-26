@@ -7,7 +7,7 @@
 <body>
 <h1> Search Result </h1>
 
-	<div>
+	<div style="padding:100px">
 		<table border="0" width="100%">
 			<thead></thead>
 			
