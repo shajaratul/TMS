@@ -30,27 +30,27 @@
 				<legend> Extra Services </legend>
 				<table border="0" width="100%">
 				<tr>
-					<td> <p> Guided Tour </p> <td>
+					<td> <input type="checkbox" value="tour"> Guided Tour </input> </td>
 					<td> </td>
 					<td> <p> tk.XXXX/- </p> </td>
 				</tr>
 				<tr>
-					<td> <p> Car Renting </p> <td>
+					<td> <input type="checkbox" value="carrent"> Car Renting </input> </td>
 					<td> </td>
 					<td> <p> tk.XXXX/- </p> </td>
 				</tr>
 				<tr>
-					<td> <p> Quadbike Renting </p> <td>
+					<td> <input type="checkbox" value="bikerent">  Quadbike Renting </input> </td>
 					<td> </td>
 					<td> <p> tk.XXXX/- </p> </td>
 				</tr>
 				<tr>
-					<td> <p> Swiming Gear Renting </p> <td>
+					<td> <input type="checkbox" value="swimrent"> Swiming Gear Renting </input> </td>
 					<td> </td>
 					<td> <p> tk.XXXX/- </p> </td>
 				</tr>
 				<tr>
-					<td> <p> Speedboat Renting </p> <td>
+					<td> <input type="checkbox" value="boatrent"> Speedboat Renting </input> </td>
 					<td> </td>
 					<td> <p> tk.XXXX/- </p> </td>
 				</tr>
