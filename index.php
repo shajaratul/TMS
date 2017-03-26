@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TMS</title>
+    <title>TMS Home Page</title>
   </head>
 
   <body style="line-height: 1.5; margin: 0; width: 1300px;">
@@ -28,7 +28,10 @@
         <h2><b>Where do you want to go?</b></h2>
         <h4>Trips, experiences, and places. All in one service</h4>
         <div class="search">
-          <input></input><button>Search Here</button>
+			<form action="./searchresult.php">
+				<input type="text" name="keyword"/>
+				<input type="submit" value="Search"/>
+			</form>
         </div>
       </div>
 
