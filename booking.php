@@ -6,7 +6,7 @@
 <body>
 	<h1> Add Booking </h1>
 	<fieldset>
-	<form>
+	<form action="./index.php">
 		<fieldset>
 			<legend> Booking Details </legend>
 			<table border="0" width="100%">
@@ -72,6 +72,7 @@
 					
 				</table>
 			</fieldset>
+			<br/>
 			<center> <input type="submit" Value="Make Booking" /> </center>
 		</fieldset>
 	</form>
