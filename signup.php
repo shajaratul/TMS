@@ -18,9 +18,15 @@
 	</tr>
 	
 	<tr>
-		<td> <p> email: </p> </td>
+		<td> <p> Email: </p> </td>
 		<td> <input type="text" name="emailfield"/> </td>
 	</tr>
+	
+	<tr>
+		<td> <p> Contact No: </p> </td>
+		<td> <input type="text" name="contactnofield"/> </td>
+	</tr>
+	
 	<tr>
 		<td> <p> Password: </p> </td>
 		<td> <input type="password" name="passfield"/> </td>
