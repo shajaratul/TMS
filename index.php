@@ -46,34 +46,34 @@
 				<tr>
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 				</tr>
 
 				<tr>
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 				</tr>
 			</tbody>
