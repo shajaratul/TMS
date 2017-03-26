@@ -7,7 +7,7 @@
 <body>
 <h1> Search Result </h1>
 
-	<div style="padding:100px">
+	<div style="padding-left:100px; padding-top:50px" >
 		<table border="0" width="100%">
 			<thead></thead>
 			
@@ -15,34 +15,34 @@
 				<tr>
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 				</tr>
 
 				<tr>
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 				</tr>
 			</tbody>
