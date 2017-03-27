@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TMS</title>
+    <title>TMS Home Page</title>
   </head>
 
   <body style="line-height: 1.5; margin: 0; width: 1300px;">
@@ -11,12 +11,14 @@
         <a class="logo" href="#" style="text-decoration: none;font-size: 24px;width: 200px; float: left;"><b>Travel.com</b></a>
 
         <ul style="width: 800px;float:left;list-style:none;text-align: right;">
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="./index.php">Home</a></li>
+
+          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="index.php">Home</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Places</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Holiday Packages</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Contact</a></li>
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="./login.php">Login</a></li>
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="./register.php">Sign UP</a></li>
+          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="login.php">Login</a></li>
+          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="signup.php">Sign UP</a></li>
+
 
         </ul>
 
@@ -26,7 +28,10 @@
         <h2><b>Where do you want to go?</b></h2>
         <h4>Trips, experiences, and places. All in one service</h4>
         <div class="search">
-          <input></input><button>Search Here</button>
+			<form action="./searchresult.php">
+				<input type="text" name="keyword"/>
+				<input type="submit" value="Search"/>
+			</form>
         </div>
       </div>
 
@@ -41,34 +46,34 @@
 				<tr>
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 				</tr>
 
 				<tr>
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 
 					<td>
 					<h4>Swamp Forest</h4>
-					<img width=50% src="images/swamp-forest.jpg" />
+					<img width=80% src="images/swamp-forest.jpg" />
 					</td>
 				</tr>
 			</tbody>
@@ -81,8 +86,9 @@
         <p>email</p>
         <p>phone</p>
 
-      </div>
-      <div style="float=right">
+
+      <div style="float:right">
+
         <ul style="list-style: none;">
           <li><a href= "www.facebook.com/travel:" ><img src="images/facebook.png"></a></li>
           <li><a href= "www.twitter.com/travel:" ><img src="images/twitter.png"></a></li>
