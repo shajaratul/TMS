@@ -15,7 +15,7 @@
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="index.php">Home</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Places</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Holiday Packages</a></li>
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Contact</a></li>
+          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="contact.php">Contact</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="login.php">Login</a></li>
           <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="signup.php">Sign UP</a></li>
 
