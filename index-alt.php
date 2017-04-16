@@ -70,6 +70,9 @@
 		padding: 20px;
 		margin: 0px;
 		color: white;
+		background-color: #0a1429;
+		font-family: Arvo;
+		width: 15%;
 	}
 	
 	#site-header {
@@ -79,11 +82,11 @@
 		width: 50%;
 	}
 	
-	#site-nav {
+	.site-nav {
 		margin: 0px;
 		padding: 0px;
-		position: absolute;
-		top: 25px;
+		position: relative;
+		top: 0px;
 		right: 10px;
 		
 	}
@@ -91,7 +94,8 @@
 	#grid {
 		padding-left: 15%;
 		padding-right: 10%;
-		padding-top: 5%;
+		padding-top: 2%;
+		margin: 0;
 	}
 	</style>
 <head>
@@ -101,7 +105,7 @@
 		<div>
 			<h1 id="site-header"> Travel.com </h1>
 			
-			<div id="site-nav">
+			<div class="site-nav">
 			<ul>
 				<li><a href="index.php"> Sign UP </a></li>
 				<li><a href="index.php"> Login </a></li>
@@ -127,7 +131,8 @@
 	</div>
 	
 	<div id="page-2">
-		<h1><b> Popular Destination </b></h1>
+		<h1><b> Popular Destinations </b></h1>
+	
 		
 		<div id="grid">
 			<table border="0" width="100%">
@@ -137,34 +142,34 @@
 					<tr>
 						<td>
 						<h4>Swamp Forest</h4>
-						<img width=80% src="images/swamp-forest.jpg" />
+						<img width=300px height=300px src="images/01.jpg" />
 						</td>
 
 						<td>
 						<h4>Swamp Forest</h4>
-						<img width=80% src="images/swamp-forest.jpg" />
+						<img width=300px height=300px src="images/02.jpg" />
 						</td>
 
 						<td>
 						<h4>Swamp Forest</h4>
-						<img width=80% src="images/swamp-forest.jpg" />
+						<img width=300px height=300px src="images/03.jpg" />
 						</td>
 					</tr>
 
 					<tr>
 						<td>
 						<h4>Swamp Forest</h4>
-						<img width=80% src="images/swamp-forest.jpg" />
+						<img width=300px height=300px src="images/04.jpg" />
 						</td>
 
 						<td>
 						<h4>Swamp Forest</h4>
-						<img width=80% src="images/swamp-forest.jpg" />
+						<img width=300px height=300px src="images/05.jpg" />
 						</td>
 
 						<td>
 						<h4>Swamp Forest</h4>
-						<img width=80% src="images/swamp-forest.jpg" />
+						<img width=300px height=300px src="images/06.jpg" />
 						</td>
 					</tr>
 				</tbody>
