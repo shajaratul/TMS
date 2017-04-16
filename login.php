@@ -5,6 +5,7 @@
 
 <body>
 	<div align="center" style="padding-top:40px">
+	<form action="./userhomepage.php">
 	<h1> Log In </h1>
 	<table border="0">
 	<tr>
@@ -20,13 +21,14 @@
 	<table border="0">
 	<tr> </tr>
 	<tr colspan="2" align="center">
-		<td> <input type="button" Value="Login"/> </td>
+		<td> <input type="submit" Value="Login"/> </td>
 	</tr>
 	<tr colspan="2" align="center">
 		<td> Don't have an account?
 		<a href="signup.php"> Click here to register </a> </td>
 	</tr>
 	</table>
+	</form>
 	</div>
 </body>
 

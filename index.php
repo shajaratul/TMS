@@ -97,6 +97,15 @@
 		padding-top: 2%;
 		margin: 0;
 	}
+	
+	.place-name {
+		padding: 10px;
+		margin: 0px;
+		color: white;
+		background-color: #0a1429;
+		font-family: Arvo;
+		width: 25%;
+	}
 	</style>
 <head>
 
@@ -107,10 +116,10 @@
 			
 			<div class="site-nav">
 			<ul>
-				<li><a href="index.php"> Sign UP </a></li>
-				<li><a href="index.php"> Login </a></li>
+				<li><a href="register.php"> Sign UP </a></li>
+				<li><a href="login.php"> Login </a></li>
 				<li><a href="#"> Holiday Packages </a></li>
-				<li><a href="index.php"> Contact </a></li>
+				<li><a href="contact.php"> Contact </a></li>
 				<li><a href="#"> Places </a></li>
 				<li><a href="index.php"> Home </a></li>
 			</ul>
@@ -141,34 +150,34 @@
 				<tbody>
 					<tr>
 						<td>
-						<h4>Swamp Forest</h4>
+						<h4 class="place-name">Swamp Forest</h4>
 						<img width=300px height=300px src="images/01.jpg" />
 						</td>
 
 						<td>
-						<h4>Swamp Forest</h4>
+						<h4 class="place-name">Swamp Forest</h4>
 						<img width=300px height=300px src="images/02.jpg" />
 						</td>
 
 						<td>
-						<h4>Swamp Forest</h4>
+						<h4 class="place-name">Swamp Forest</h4>
 						<img width=300px height=300px src="images/03.jpg" />
 						</td>
 					</tr>
 
 					<tr>
 						<td>
-						<h4>Swamp Forest</h4>
+						<h4 class="place-name">Swamp Forest</h4>
 						<img width=300px height=300px src="images/04.jpg" />
 						</td>
 
 						<td>
-						<h4>Swamp Forest</h4>
+						<h4 class="place-name">Swamp Forest</h4>
 						<img width=300px height=300px src="images/05.jpg" />
 						</td>
 
 						<td>
-						<h4>Swamp Forest</h4>
+						<h4 class="place-name">Swamp Forest</h4>
 						<img width=300px height=300px src="images/06.jpg" />
 						</td>
 					</tr>
