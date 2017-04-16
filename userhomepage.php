@@ -44,7 +44,13 @@
 				
 			</fieldset>
 		</div>
-	
+		
+		<center> 
+			<form action="./adminhomepage.php">
+				<input type="submit" value="Admin Homepage"/>
+			</form>
+		</center>
+		
 	</div>
 </body>
 </html>
