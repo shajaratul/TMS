@@ -1,60 +1,51 @@
 <html>
 <head>
-	<title>
-		User Registration page
-	</title>
+	<title> Sign up - travel.com </title>
 </head>
 
 <body>
-	<center><form method="post">
-		Sign Up
-		<br/>
-		First Name: 
-		<br/>
-		<input type="text" name=""/>
-		<br/>
+	<div align="center" style="padding-top:40px">
+	<h1> Registration </h1>
+	<table border="0">
+	<tr>
+		<td> <p> First Name: </p> </td>
+		<td> <input type="text" name="fnamefield"/> </td>
+	</tr>
 	
-		Last Name:
-		<br/>
-		<input type="text" name=""/>
-		<br/>
-		
-		Email:
-		<br/>
-		<input type="text" name=""/>
-		<br/>
-		
-		Password:
-		<br/>
-		<input type="Password" name=""/>
-		<br/>
-		
-		Confirm Password:
-		<br/>
-		<input type="Password" name=""/>
-		<br/>
-		
-		Contact No:
-		<br/>
-		<input type="text" name=""/>
-		<br/><br/>
-
-		User Type [User/Admin]
-		<br/>
-		<br/>
-		<select name="usertype">
-			<option>User</option>
-			<option>Admin</option>
-		</select>
-		<br/><br/>
-		<input type="submit" value="Register"/><br/>
-		<a href="./login.php"> Login </a>
-		<a href="index.php"> Home </a>
-
-	</form>
-	</center>
+	<tr>
+		<td> <p> Last Name: </p> </td>
+		<td> <input type="text" name="lnamefield"/> </td>
+	</tr>
 	
-
-
+	<tr>
+		<td> <p> Email: </p> </td>
+		<td> <input type="text" name="emailfield"/> </td>
+	</tr>
+	
+	<tr>
+		<td> <p> Contact No: </p> </td>
+		<td> <input type="text" name="contactnofield"/> </td>
+	</tr>
+	
+	<tr>
+		<td> <p> Password: </p> </td>
+		<td> <input type="password" name="passfield"/> </td>
+	</tr>
+	
+	<tr>
+		<td> <p> Retype Password: </p> </td>
+		<td> <input type="password" name="passfield"/> </td>
+	</tr>
+	</table>
+	<table border="0">
+	<tr> </tr>
+	<tr colspan="2" align="center">
+		<td> <input type="button" Value="Submit"/> </td>
+	</tr>
+	<tr colspan="2" align="center">
+		<td> Already have an account?
+		<a href="./login.php"> Click here to log in </a> </td>
+	</tr>
+	</table>
+	</div>
 </body>
-</html>
