@@ -72,7 +72,7 @@
 		color: white;
 		background-color: #0a1429;
 		font-family: Arvo;
-		width: 15%;
+		width: 25%;
 	}
 	
 	#site-header {
@@ -151,34 +151,34 @@
 					<tr>
 						<td>
 						<h4 class="place-name">Swamp Forest</h4>
-						<img width=300px height=300px src="images/01.jpg" />
+						<img width=70% height=auto src="images/01.jpg" />
 						</td>
 
 						<td>
 						<h4 class="place-name">Swamp Forest</h4>
-						<img width=300px height=300px src="images/02.jpg" />
+						<img width=70% height=auto src="images/02.jpg" />
 						</td>
 
 						<td>
 						<h4 class="place-name">Swamp Forest</h4>
-						<img width=300px height=300px src="images/03.jpg" />
+						<img width=70% height=auto src="images/03.jpg" />
 						</td>
 					</tr>
 
 					<tr>
 						<td>
 						<h4 class="place-name">Swamp Forest</h4>
-						<img width=300px height=300px src="images/04.jpg" />
+						<img width=70% height=auto src="images/04.jpg" />
 						</td>
 
 						<td>
 						<h4 class="place-name">Swamp Forest</h4>
-						<img width=300px height=300px src="images/05.jpg" />
+						<img width=70% height=auto src="images/07.jpg" />
 						</td>
 
 						<td>
 						<h4 class="place-name">Swamp Forest</h4>
-						<img width=300px height=300px src="images/06.jpg" />
+						<img width=70% height=auto src="images/06.jpg" />
 						</td>
 					</tr>
 				</tbody>

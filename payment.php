@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title> TMS - Add Booking </title>
+	<title> TMS - Booking Payment </title>
 </head>
 
 <body>
@@ -8,7 +8,7 @@
 	<fieldset>
 	<form action="./index.php">
 		<fieldset>
-			<legend> Booking Details </legend>
+			<legend> Payment </legend>
 			<table border="0" width="100%">
 				<tr>
 					<td><h3> Deluxe Double Bedroom </h3></td>
@@ -64,19 +64,6 @@
 						<td> <h3> Total: </h3> </td>
 						<td> <h3> tk.XX,XXX/- </h3> </td>
 					</tr>
-					
-					<tr>
-						<td> <h4> Payment Method </h4> </td>
-						<td>
-							<input type="radio" name="payment" value="self"> Pay when checking in </input>
-							<br/>
-							<input type="radio" name="payment" value="easy"> Pay with your bank card </input>
-							<br/>
-							<input type="radio" name="payment" value="bkash"> Pay with bkash </input>
-							<br/>
-							<br/>
-						</td>
-					</tr>
 				
 					<tr>
 						<td> <h4> Special Requests </h4> </td>
@@ -84,10 +71,9 @@
 					</tr>
 					
 				</table>
-				
 			</fieldset>
 			<br/>
-			<center> <input type="submit" Value="Make Booking" /> </center>
+			<center> <input type="submit" Value="Proceed" /> </center>
 		</fieldset>
 	</form>
 	</fieldset>
