@@ -70,9 +70,9 @@
 						<td>
 							<input type="radio" name="payment" value="self"> Pay when checking in </input>
 							<br/>
-							<input type="radio" name="payment" value="easy"> Pay with your bank card </input>
+							<input type="radio" name="payment" value="easy"> Pay with your ATM card </input>
 							<br/>
-							<input type="radio" name="payment" value="bkash"> Pay with bkash </input>
+							<input type="radio" name="payment" value="bkash"> Pay with bKash/Rocket </input>
 							<br/>
 							<br/>
 						</td>
