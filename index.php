@@ -1,106 +1,188 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>TMS Home Page</title>
-  </head>
+<head>
+	<title> TMS Home Page </title>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo">
+	<style>
+	ul {
+		list-style-type: none;
+		margin: 0px;
+		padding: 0px;
+		width: Auto;
+		height: Auto;
+		background-color: #f1f1f1;
+	}
+	
+	li {
+		float: right;
+	}
+	
+	li a {
+		display: block;
+		color: #000;
+		padding: 8px 16px;
+		text-decoration: none;
+	}
+	
+	li a.active {
+		background-color: #3366ff;
+		color: white;
+	}
+	
+	li a.active:hover {
+		background-color: #33ccff;
+		color: white;
+	}
+	
+	li a:hover:not(.active) {
+		background-color: #555;
+		color: white;
+	}
+	
+	#search {
+		margin-top: 10%;
+		text-align: center;
+		color: #1a1a00;
+		font-family: Arvo;
+	}
+	
+	body {
+		margin: 0px;
+		padding: 0px;
+		
+	}
+	
+	#page-1 {
+		background: url(images/sajek.jpg);
+		background-attachment: fixed;
+		background-size: auto;
+		height: 100%;
+	}
+	
+	#page-2 {
+		background: url(images/village.jpg);
+		background-attachment: fixed;
+		background-size: cover;
+		height: 100%;
+		
+		
+	}
+	
+	#page-2 h1 {
+		padding: 20px;
+		margin: 0px;
+		color: white;
+		background-color: #0a1429;
+		font-family: Arvo;
+		width: 25%;
+	}
+	
+	#site-header {
+		color: white;
+		padding: 20px;
+		margin: 0px;
+		width: 50%;
+	}
+	
+	.site-nav {
+		margin: 0px;
+		padding: 0px;
+		position: relative;
+		top: 0px;
+		right: 10px;
+		
+	}
+	
+	#grid {
+		padding-left: 15%;
+		padding-right: 10%;
+		padding-top: 2%;
+		margin: 0;
+	}
+	
+	.place-name {
+		padding: 10px;
+		margin: 0px;
+		color: white;
+		background-color: #0a1429;
+		font-family: Arvo;
+		width: 25%;
+	}
+	</style>
+<head>
 
-  <body style="line-height: 1.5; margin: 0; width: 1300px;">
-    
-    <div style="background:url(images/top-bg.jpg); background-size: cover; text-align:center;padding: 2% 10% 10% 10%;float:left;width:100%;margin: -20px 0;">
-      <div class="top-bar">
-        <a class="logo" href="#" style="text-decoration: none;font-size: 24px;width: 200px; float: left;"><b>Travel.com</b></a>
-
-        <ul style="width: 800px;float:left;list-style:none;text-align: right;">
-
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="index.php">Home</a></li>
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Places</a></li>
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Holiday Packages</a></li>
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="#">Contact</a></li>
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="login.php">Login</a></li>
-          <li style="display:inline-block; padding: 10px 20px;"><a style="text-decoration: none;" href="signup.php">Sign UP</a></li>
-
-
-        </ul>
-
-      </div>
-
-      <div style="width: 100%; float: left;">
-        <h2><b>Where do you want to go?</b></h2>
-        <h4>Trips, experiences, and places. All in one service</h4>
-        <div class="search">
-			<form action="./searchresult.php">
-				<input type="text" name="keyword"/>
-				<input type="submit" value="Search"/>
-			</form>
-        </div>
-      </div>
-
-    </div>
-
-    <div>
-    <h2><b>Popular Destinations</b></h2>
-    	<table border="0" width="100%">
-			<thead></thead>
+<body>
+	<div id="page-1">
+		<div>
+			<h1 id="site-header"> Travel.com </h1>
 			
-			<tbody>
-				<tr>
-					<td>
-					<h4>Swamp Forest</h4>
-					<img width=80% src="images/swamp-forest.jpg" />
-					</td>
+			<div class="site-nav">
+			<ul>
+				<li><a href="register.php"> Sign UP </a></li>
+				<li><a href="login.php"> Login </a></li>
+				<li><a href="#"> Holiday Packages </a></li>
+				<li><a href="contact.php"> Contact </a></li>
+				<li><a href="#"> Places </a></li>
+				<li><a href="index.php"> Home </a></li>
+			</ul>
+			</div>
+		</div>
+		
+		<div id="search">
+			<h1> <b> Where Do You Want to Go? </b> </h1>
+			<h3> Trips, experiences and places. All in one service. </h3>
+			
+			<div>
+				<form action="./searchresult.php">
+					<input type="text" name="keyword"/>
+					<input type="submit" value="Search"/>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div id="page-2">
+		<h1><b> Popular Destinations </b></h1>
+	
+		
+		<div id="grid">
+			<table border="0" width="100%">
+				<thead></thead>
+				
+				<tbody>
+					<tr>
+						<td>
+						<h4 class="place-name">Swamp Forest</h4>
+						<img width=70% height=auto src="images/01.jpg" />
+						</td>
 
-					<td>
-					<h4>Swamp Forest</h4>
-					<img width=80% src="images/swamp-forest.jpg" />
-					</td>
+						<td>
+						<h4 class="place-name">Swamp Forest</h4>
+						<img width=70% height=auto src="images/02.jpg" />
+						</td>
 
-					<td>
-					<h4>Swamp Forest</h4>
-					<img width=80% src="images/swamp-forest.jpg" />
-					</td>
-				</tr>
+						<td>
+						<h4 class="place-name">Swamp Forest</h4>
+						<img width=70% height=auto src="images/03.jpg" />
+						</td>
+					</tr>
 
-				<tr>
-					<td>
-					<h4>Swamp Forest</h4>
-					<img width=80% src="images/swamp-forest.jpg" />
-					</td>
+					<tr>
+						<td>
+						<h4 class="place-name">Swamp Forest</h4>
+						<img width=70% height=auto src="images/04.jpg" />
+						</td>
 
-					<td>
-					<h4>Swamp Forest</h4>
-					<img width=80% src="images/swamp-forest.jpg" />
-					</td>
+						<td>
+						<h4 class="place-name">Swamp Forest</h4>
+						<img width=70% height=auto src="images/07.jpg" />
+						</td>
 
-					<td>
-					<h4>Swamp Forest</h4>
-					<img width=80% src="images/swamp-forest.jpg" />
-					</td>
-				</tr>
-			</tbody>
-		</table>
-    </div> 
-
-    <div style="background-color: #cdcdcd; float: left; width: 100%;">
-      <div style="float: left">
-        <h4>Contact Info</h4>
-        <p>email</p>
-        <p>phone</p>
-
-
-      <div style="float:right">
-
-        <ul style="list-style: none;">
-          <li><a href= "www.facebook.com/travel:" ><img src="images/facebook.png"></a></li>
-          <li><a href= "www.twitter.com/travel:" ><img src="images/twitter.png"></a></li>
-          <li><a href= "www.plus.google.com/travel:" ><img src="images/google-plus.png"></a></li>
-        </ul>
-      </div>
-    </div>
-  <div>
-    <P><center>© Copyright travel.com</center></P>
-  </div>>
-
-
-    
-  </body>
-</html>
+						<td>
+						<h4 class="place-name">Swamp Forest</h4>
+						<img width=70% height=auto src="images/06.jpg" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
