@@ -1,3 +1,5 @@
+<?php define('APP_ROOT', "$_SERVER[DOCUMENT_ROOT]/tms"); ?>
+
 <head>
 	<title> TMS Home Page </title>
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo">
