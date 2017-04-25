@@ -13,7 +13,7 @@
 			mysqli_close($connection);
 		}
 		else {
-			echo "Error connecting to database";
+			die("Error connecting to database");
 		}
 		
 		return $result;
