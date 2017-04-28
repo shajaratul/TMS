@@ -116,10 +116,10 @@
 			
 			<div class="site-nav">
 			<ul>
-				<li><a href="signup.php"> Sign UP </a></li>
-				<li><a href="login.php"> Login </a></li>
+				<li><a href="ui/view/signup.php"> Sign UP </a></li>
+				<li><a href="ui/view/login.php"> Login </a></li>
 				<li><a href="#"> Holiday Packages </a></li>
-				<li><a href="contact.php"> Contact </a></li>
+				<li><a href="ui/view/contact.php"> Contact </a></li>
 				<li><a href="#"> Places </a></li>
 				<li><a href="index.php"> Home </a></li>
 			</ul>
@@ -131,7 +131,7 @@
 			<h3> Trips, experiences and places all in one service </h3>
 			
 			<div>
-				<form action="./searchresult.php">
+				<form action="ui/view/searchresult.php">
 					<input type="text" name="keyword"/>
 					<input type="submit" value="Search"/>
 				</form>
