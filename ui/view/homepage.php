@@ -116,12 +116,12 @@
 			
 			<div class="site-nav">
 			<ul>
-				<li><a href="ui/view/signup.php"> Sign UP </a></li>
-				<li><a href="ui/view/login.php"> Login </a></li>
-				<li><a href="#"> Holiday Packages </a></li>
-				<li><a href="ui/view/contact.php"> Contact </a></li>
-				<li><a href="#"> Places </a></li>
-				<li><a href="index.php"> Home </a></li>
+				<li><a href="index?show=signup"> Sign UP </a></li>
+				<li><a href="index?show=login"> Login </a></li>
+				<li><a href="index?show=contact"> Contact </a></li>
+				<li><a href="#page-3"> Holiday Packages </a></li>
+				<li><a href="#page-2"> Places </a></li>
+				<li><a href="#"> Home </a></li>
 			</ul>
 			</div>
 		</div>
