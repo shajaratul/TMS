@@ -59,13 +59,12 @@
 
 	<div>	
 		<ul>
-			<li><a href="#"> Members</a></li>
-			<li><a href="#"> Places </a></li>
-			<li><a href="#"> Add Place </a></li>
-			<li><a href="#"> Delete Place </a></li>
-			<li><a href="#"> Modify Place</a></li>
-			<li><a href="#"> Holiday Package </a></li>
+			<li><a href="#"> Support Tickets</a></li>
+			<li><a href="#"> Holiday Packages </a></li>
 			<li><a href="#"> Bookings </a></li>
+			<li><a href="#"> Places </a></li>
+			<li><a href="#"> Rooms </a></li>
+			<li><a href="#"> Users </a></li>
 		</ul>
 	</div>
 	

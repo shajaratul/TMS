@@ -1,3 +1,11 @@
+<?php
+	if(!isset($fromController)){
+			header('HTTP/1.1 403 Not Authorized');
+			echo "<h1>403 - Not Authorized </h1> <br/>";
+			exit;
+		}
+?>
+<html>
 <head>
 	<title> TMS Home Page </title>
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo">
@@ -116,12 +124,12 @@
 			
 			<div class="site-nav">
 			<ul>
-				<li><a href="ui/view/signup.php"> Sign UP </a></li>
-				<li><a href="ui/view/login.php"> Login </a></li>
-				<li><a href="#"> Holiday Packages </a></li>
-				<li><a href="ui/view/contact.php"> Contact </a></li>
-				<li><a href="#"> Places </a></li>
-				<li><a href="index.php"> Home </a></li>
+				<li><a href="index?show=signup"> Sign UP </a></li>
+				<li><a href="index?show=login"> Login </a></li>
+				<li><a href="index?show=contact"> Contact </a></li>
+				<li><a href="#page-3"> Holiday Packages </a></li>
+				<li><a href="#page-2"> Places </a></li>
+				<li><a href="#"> Home </a></li>
 			</ul>
 			</div>
 		</div>
@@ -186,3 +194,15 @@
 		</div>
 	</div>
 </body>
+</html>
+
+<?php
+
+	// $places = getAllPlaces();
+	// //var_dump($places);
+	// foreach($places as $item){
+		// echo $item['name'];
+		// echo "<br/>";
+	// }
+
+?>
