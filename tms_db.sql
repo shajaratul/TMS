@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2017 at 08:05 PM
+-- Generation Time: Apr 29, 2017 at 04:53 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -70,6 +70,19 @@ CREATE TABLE `places` (
   `division` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `places`
+--
+
+INSERT INTO `places` (`placeid`, `name`, `division`) VALUES
+(1, 'Cox\'s Bazar', 'Chittagong'),
+(3, 'Rangamati', 'Chittagong'),
+(4, 'Habiganj', 'Sylhet'),
+(5, 'Moulovibazar', 'Sylhet'),
+(6, 'Sreemangal', 'Sylhet'),
+(7, 'Rajshahi', 'Rajshahi'),
+(8, 'Rangpur', 'Rangpur');
+
 -- --------------------------------------------------------
 
 --
@@ -78,12 +91,14 @@ CREATE TABLE `places` (
 
 CREATE TABLE `rooms` (
   `roomid` int(11) NOT NULL,
+  `placeid` int(11) NOT NULL,
+  `bookingid` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
+  `host` varchar(50) NOT NULL,
   `description` varchar(100) NOT NULL,
   `details` text,
   `capacity` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `placeid` int(11) NOT NULL
+  `price` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -94,13 +109,13 @@ CREATE TABLE `rooms` (
 
 CREATE TABLE `tickets` (
   `ticketid` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `time` date NOT NULL,
   `title` varchar(50) NOT NULL,
   `type` int(11) NOT NULL,
   `description` text NOT NULL,
-  `userid` int(11) NOT NULL,
-  `time` date NOT NULL,
-  `response` text,
-  `status` int(11) NOT NULL
+  `response` text
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -127,14 +142,78 @@ CREATE TABLE `users` (
 -- Indexes for table `bookings`
 --
 ALTER TABLE `bookings`
-  ADD PRIMARY KEY (`bookingid`);
+  ADD PRIMARY KEY (`bookingid`),
+  ADD UNIQUE KEY `bookingid` (`bookingid`);
+
+--
+-- Indexes for table `packages`
+--
+ALTER TABLE `packages`
+  ADD PRIMARY KEY (`packageid`),
+  ADD UNIQUE KEY `packageid` (`packageid`);
+
+--
+-- Indexes for table `places`
+--
+ALTER TABLE `places`
+  ADD PRIMARY KEY (`placeid`),
+  ADD UNIQUE KEY `placeid` (`placeid`);
+
+--
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD PRIMARY KEY (`roomid`),
+  ADD UNIQUE KEY `roomid` (`roomid`);
 
 --
 -- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
-  ADD PRIMARY KEY (`ticketid`);
+  ADD PRIMARY KEY (`ticketid`),
+  ADD UNIQUE KEY `ticketid` (`ticketid`);
 
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userid`),
+  ADD UNIQUE KEY `userid` (`userid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `bookingid` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `packages`
+--
+ALTER TABLE `packages`
+  MODIFY `packageid` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `places`
+--
+ALTER TABLE `places`
+  MODIFY `placeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `roomid` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tickets`
+--
+ALTER TABLE `tickets`
+  MODIFY `ticketid` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
