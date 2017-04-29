@@ -5,7 +5,9 @@
 $queryArray = array($_GET)[0];
 
 if(sizeof($queryArray) == 0){
-	require(APP_ROOT."/ui/view/homepage.php"); 
+	$fromController = true;
+	$view = "home";
+	include_once(APP_ROOT."/ui/controller/default_controller.php");
 }
 
 else if (sizeof($queryArray) > 0){

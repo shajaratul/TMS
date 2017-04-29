@@ -10,6 +10,10 @@
 
 <?php 
 	switch($view){
+		case "home":
+			include_once(APP_ROOT."/ui/view/homepage.php");
+			break;
+		
 		case "search":
 			include_once(APP_ROOT."/ui/view/searchresult.php");
 			break;
@@ -37,6 +41,7 @@
 		case "contact":
 			include_once(APP_ROOT."/ui/view/contact.php");
 			break;
+			
 			
 		default:
 			header('HTTP/1.1 404 Not Found');
