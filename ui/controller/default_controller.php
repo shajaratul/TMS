@@ -27,7 +27,19 @@
 			break;
 			
 		case "admin":
-			include_once(APP_ROOT."/ui/view/signup.php");
+			include_once(APP_ROOT."/ui/view/adminhomepage.php");
 			break;
+			
+		case "booking":
+			include_once(APP_ROOT."/ui/view/booking.php");
+			break;
+			
+		case "contact":
+			include_once(APP_ROOT."/ui/view/contact.php");
+			break;
+			
+		default:
+			header('HTTP/1.1 404 Not Found');
+			echo "<h1>404 - Not Found </h1> <br/>";
 	
 	
