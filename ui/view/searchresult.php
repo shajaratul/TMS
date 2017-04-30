@@ -84,6 +84,7 @@
 		for(var i in rooms){
 			addFrame();
 		}
+		
 	</script>
 </head>
 
