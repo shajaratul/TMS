@@ -1,5 +1,5 @@
-	<div name="frame">
-		<div name="content">
+	<div class="frame">
+		<div class="content">
 			<form action="index?show=booking">
 				<div style="padding-left:20px;padding-right:20px">
 					<img width=80% src="ui/images/deluxe-double-room.jpg" />
