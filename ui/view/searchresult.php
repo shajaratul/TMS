@@ -1,3 +1,48 @@
+<?php
+	if(!isset($fromController)){
+		header('HTTP/1.1 403 Not Authorized');
+		echo "<h1>403 - Not Authorized </h1> <br/>";
+		exit;
+	}
+?>
+
+<?php
+	session_start();
+	$keyword = $_SESSION['keyword'];
+	
+	$place = getPlaceByName($keyword);
+	
+	if(count($place) < 1){
+		$place = getPlaceByDivision($keyword);
+	}
+	
+	$rooms = getRoomsByPlaceId($place['placeid']);
+	
+	foreach($rooms as $item){
+		echo $item['name'];
+	}
+	
+	// $allPlaces = getAllPlaces();
+	// $places = array();
+	// $divisions = array();
+	
+	// //var_dump($allPlaces);
+	
+	// for($i=0; $i < sizeof($allPlaces); ++$i){
+		// $places[$i] = $allPlaces[$i]['name'];
+	// }
+	
+	// for($i=0; $i < sizeof($allPlaces); ++$i){
+		// $divisions[$i] = $allPlaces[$i]['division'];
+	// }
+	
+	// $temp = $divisions;
+	// $divisions = array_unique($temp);
+	
+	// var_dump($places);
+	// var_dump($divisions);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
