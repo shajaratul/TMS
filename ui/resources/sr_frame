@@ -2,11 +2,12 @@
 		<div class="content">
 			<form action="index?show=booking">
 				<div style="padding-left:20px;padding-right:20px">
-					<img width=80% src="ui/images/deluxe-double-room.jpg" />
-					<h4></h4>
-					<h5></h5>
-					<p></p>
-					<h3></h3>
+					<img width="80%" src="ui/images/deluxe-double-room.jpg"/>
+					<h2 class="title"></h2>
+					<p class="host"></h2>
+					<h4 class="desc"></h5>
+					<h4 class="capacity"></p>
+					<h3 class="price"></h3>
 					<div style="float:right;padding-right:80px">
 						<input type="button" name="getDetails" value="read more"/>
 						<input type="button" name="submit" value="Book"/>
