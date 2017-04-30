@@ -53,8 +53,34 @@
 		return executeNonQuery($query);
 	}
 	
-	function getPlaceByIdFromDb($id){ // gets a particular place's details from db. Used in the "search" feature in the home page.
+	function getPlaceByIdFromDb($id){ // gets a particular place's details from db. Admin only feature.
 		$query = "SELECT name, division FROM places WHERE placeid=$id";  
+		$result = executeQuery($query);	
+		$place = null;
+		if($result){
+			$place = mysqli_fetch_assoc($result);
+		}
+		return $place;
+	}
+	
+	function getPlaceByNameFromDb($_name){ // gets a particular place's details from db. Admin only feature.
+		$connection = establishDbConnection();
+		$name = mysqli_real_escape_string($connection, $_name);
+		mysqli_close($connection);
+		$query = "SELECT placeid, name, division FROM places WHERE name LIKE '%$name%'";  
+		$result = executeQuery($query);	
+		$place = null;
+		if($result){
+			$place = mysqli_fetch_assoc($result);
+		}
+		return $place;
+	}
+	
+	function getPlaceByDivisionFromDb($_division){
+		$connection = establishDbConnection();
+		$division = mysqli_real_escape_string($connection, $_division);
+		mysqli_close($connection);
+		$query = "SELECT placeid, name, division FROM places WHERE division LIKE '%$division%'";
 		$result = executeQuery($query);	
 		$place = null;
 		if($result){
@@ -91,7 +117,7 @@
 	}
 	
 	function getRoomByIdFromDb($id){ //gets the details of a particular room.
-		$query = "SELECT name, host, description, details, capacity, price, placeid FROM rooms WHERE roomid=$id";  
+		$query = "SELECT * FROM rooms WHERE roomid=$id";  
 		$result = executeQuery($query);	
 		$room = null;
 		if($result){
@@ -101,7 +127,19 @@
 	}
 	
 	function getRoomsByBookingIdFromDb($id){ //gets details of room(s) booking by a user.
-		$query = "SELECT name, host, description, details, capacity, price, placeid FROM rooms WHERE bookingid=$id";  
+		$query = "SELECT * FROM rooms WHERE bookingid=$id";  
+		$result = executeQuery($query);	
+		$roomList = array();
+		if($result){
+			for($i=0; $row = mysqli_fetch_assoc($result); ++$i) {
+				$roomList[$i] = $row;				
+			}
+		}
+		return $roomList;
+	}
+	
+	function getRoomsByPlaceIdFromDb($id){ //gets rooms in a particular place
+		$query = "SELECT * FROM rooms WHERE placeid=$id";  
 		$result = executeQuery($query);	
 		$roomList = array();
 		if($result){

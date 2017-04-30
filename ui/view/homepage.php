@@ -1,9 +1,9 @@
 <?php
 	if(!isset($fromController)){
-			header('HTTP/1.1 403 Not Authorized');
-			echo "<h1>403 - Not Authorized </h1> <br/>";
-			exit;
-		}
+		header('HTTP/1.1 403 Not Authorized');
+		echo "<h1>403 - Not Authorized </h1> <br/>";
+		exit;
+	}
 ?>
 <html>
 <head>
@@ -139,7 +139,7 @@
 			<h3> Trips, experiences and places all in one service </h3>
 			
 			<div>
-				<form action="ui/view/searchresult.php">
+				<form method="post">
 					<input type="text" name="keyword"/>
 					<input type="submit" value="Search"/>
 				</form>
@@ -198,6 +198,16 @@
 
 <?php
 
+	if($_SERVER['REQUEST_METHOD']=="POST"){
+	
+		session_start();
+		
+		$keyword = trim($_REQUEST['keyword']);
+		$_SESSION['keyword'] = $keyword;
+		header("location: index?show=search");
+		
+	}
+	
 	// $places = getAllPlaces();
 	// //var_dump($places);
 	// foreach($places as $item){

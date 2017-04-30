@@ -4,10 +4,17 @@
 	$password = "";
 	$dbName = "tms_db";
 	
-	function executeNonQuery($query){
+	
+	function establishDbConnection(){
 		global $serverName, $userName, $password, $dbName;
+		return mysqli_connect($serverName, $userName, $password, $dbName);
+	}
+	
+	
+	function executeNonQuery($query){
+		
 		$result = false;
-		$connection = mysqli_connect($serverName, $userName, $password, $dbName);
+		$connection = establishDbConnection();
 		if($connection){
 			$result = mysqli_query($connection, $query);
 			mysqli_close($connection);

@@ -1,7 +1,90 @@
+<?php
+	if(!isset($fromController)){
+		header('HTTP/1.1 403 Not Authorized');
+		echo "<h1>403 - Not Authorized </h1> <br/>";
+		exit;
+	}
+?>
+
+<?php
+	session_start();
+	$keyword = $_SESSION['keyword'];
+	
+	$place = getPlaceByName($keyword);
+	
+	if(count($place) < 1){
+		$place = getPlaceByDivision($keyword);
+	}
+	
+	$rooms = getRoomsByPlaceId($place['placeid']);
+	
+	foreach($rooms as $item){
+		echo $item['name'];
+	}
+	
+	// $allPlaces = getAllPlaces();
+	// $places = array();
+	// $divisions = array();
+	
+	// //var_dump($allPlaces);
+	
+	// for($i=0; $i < sizeof($allPlaces); ++$i){
+		// $places[$i] = $allPlaces[$i]['name'];
+	// }
+	
+	// for($i=0; $i < sizeof($allPlaces); ++$i){
+		// $divisions[$i] = $allPlaces[$i]['division'];
+	// }
+	
+	// $temp = $divisions;
+	// $divisions = array_unique($temp);
+	
+	// var_dump($places);
+	// var_dump($divisions);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title> TMS </title>
+	
+	<style>
+		.frame{
+			float: left;
+			position: relative;
+			width: 30%;
+			padding-bottom: 30%;
+			margin: 1.66%;
+			overflow: hidden;
+		}
+		
+		.content{
+			position: absolute;
+			height: 90%;
+			width: 90%;
+			padding: 5%;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		var rooms = <?php echo json_encode($rooms)?>
+		
+		
+		function addFrame(){
+			var obj = new XMLHttpRequest();
+			obj.open('GET', 'ui/resources/sr_frame', true);
+			obj.send();
+			obj.onreadystatechange = function(){
+				if(obj.readyState == 4){
+					document.getElementById("canvas").innerHTML += obj.responseText;
+				}
+			}
+		}
+		
+		for(var i in rooms){
+			addFrame();
+		}
+	</script>
 </head>
 
 <body>
@@ -47,62 +130,7 @@
 			</table>
 		</div>
 		
-		<div style="margin:20px">
-		<table border="0" width="100%">
-			<thead></thead>
-			<tbody>
-				<tr>
-					<td>
-					<form action="./booking.php">
-						<div style="padding-left:20px;padding-right:20px">
-							<img width=80% src="images/deluxe-double-room.jpg" />
-							<h4>DELUXE DOUBLE BEDROOM</h4>
-							<h5>Breakfast included</h5>
-							<p> Capacity: 3 person </p>
-							<h3> Price: tk.10,000/- per night </h3>
-							<div style="float:right;padding-right:80px">
-								<input type="button" value="read more"/>
-								<input type="submit" value="Book"/>
-							</div>
-						</div>
-					</form>
-					</td>
-
-					<td>
-					<form action="./booking.php">
-						<div style="padding-left:20px;padding-right:20px">
-							<img width=80% src="images/luxury-suite.jpg" />
-							<h4>LUXURY SUITE</h4>
-							<h5>Pool & Jacuzzi Suite</h5>
-							<p> Capacity: 5 person </p>
-							<h3> Price: tk.45,000/- per night </h3>
-							<div style="float:right;padding-right:80px">
-								<input type="button" value="read more"/>
-								<input type="submit" value="Book"/>
-							</div>
-						</div>
-					</form>
-					</td>
-
-					<td>
-					<form action="./booking.php">
-						<div style="padding-left:20px;padding-right:20px">
-							<img width=80% src="images/royal-suite.jpg" />
-							<h4>ROYAL SUITE</h4>
-							<h5>Pool & Jacuzzi Suite</h5>
-							<p> Capacity: 5 person </p>
-							<h3> Price: tk.55,000/- per night </h3>							
-							<div style="float:right;padding-right:80px">
-									<input type="button" value="read more"/>
-									<input type="submit" value="Book"/>
-							</div>
-						</div>
-					</form>
-					</td>
-				</tr>
-
-				
-			</tbody>
-		</table>
+		<div id="canvas" style="margin:20px">
 		</div>
 	</div>
+</body>
