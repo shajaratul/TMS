@@ -17,6 +17,17 @@
 		return getAllPlacesFromDb();
 	}
 	
+	function getPlaceByName($name){
+		return getPlaceByNameFromDb($name);
+	}
+	
+	function getPlaceByDivision($division){
+		return getPlaceByDivisionFromDb($division);
+	}
+	
+	function getRoomsByPlaceId($placeId){
+		return getRoomsByPlaceIdFromDb($placeId);
+	}
 	
 	
 ?>
