@@ -163,7 +163,7 @@
 						document.getElementsByClassName("price")[j].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
 						j++;
 					}
-					else if (bookings[i].checkin < document.getElementById("checkout").value && bookings[i].checkout > document.getElementById("checkin").value){
+					else if (new Date(document.getElementById("checkout").value) >= new Date(bookings[i].checkin) && new Date(document.getElementById("checkin").value) <= new Date(bookings[i].checkout) ){
 						
 					}
 					else{
@@ -200,7 +200,7 @@
 				flag = false;
 			}
 			
-			if(document.getElementById("checkin").value > document.getElementById("checkout").value){
+			if(new Date(document.getElementById("checkin").value) > new Date(document.getElementById("checkout").value)){
 				alert("Please provide valid dates");
 				flag = false;
 			}
