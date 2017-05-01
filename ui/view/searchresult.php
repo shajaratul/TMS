@@ -104,7 +104,7 @@
 			}
 		}
 		
-		function init(){ console.log("init called!");
+		function init(){
 			for(var i=0; i<rooms.length; i++){
 				document.getElementById("canvas").innerHTML += sr_frame;
 				document.getElementsByClassName("title")[i].innerHTML = rooms[i].name;
@@ -153,28 +153,29 @@
 		function control(){
 			var j=0;
 			for(var i=0; i<rooms.length; i++){
-				if(bookings[i] == null){
-					document.getElementById("canvas").innerHTML += sr_frame;
-					document.getElementsByClassName("title")[j].innerHTML = rooms[i].name;
-					document.getElementsByClassName("host")[j].innerHTML = rooms[i].host;
-					document.getElementsByClassName("desc")[j].innerHTML = rooms[i].description;
-					document.getElementsByClassName("capacity")[j].innerHTML = "Capacity: " + rooms[i].capacity + " person(s)";
-					document.getElementsByClassName("price")[j].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
-					j++;
+				if(document.getElementById("personNumber").value <= rooms[i].capacity){
+					if(bookings[i] == null){
+						document.getElementById("canvas").innerHTML += sr_frame;
+						document.getElementsByClassName("title")[j].innerHTML = rooms[i].name;
+						document.getElementsByClassName("host")[j].innerHTML = rooms[i].host;
+						document.getElementsByClassName("desc")[j].innerHTML = rooms[i].description;
+						document.getElementsByClassName("capacity")[j].innerHTML = "Capacity: " + rooms[i].capacity + " person(s)";
+						document.getElementsByClassName("price")[j].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
+						j++;
+					}
+					else if (bookings[i].checkin < document.getElementById("checkout").value && bookings[i].checkout > document.getElementById("checkin").value){
+						
+					}
+					else{
+						document.getElementById("canvas").innerHTML += sr_frame;
+						document.getElementsByClassName("title")[j].innerHTML = rooms[i].name;
+						document.getElementsByClassName("host")[j].innerHTML = rooms[i].host;
+						document.getElementsByClassName("desc")[j].innerHTML = rooms[i].description;
+						document.getElementsByClassName("capacity")[j].innerHTML = "Capacity: " + rooms[i].capacity + " person(s)";
+						document.getElementsByClassName("price")[j].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
+						j++
+					}
 				}
-				else if (bookings[i].checkin < document.getElementById("checkout").value && bookings[i].checkout > document.getElementById("checkin").value){
-					
-				}
-				else{
-					document.getElementById("canvas").innerHTML += sr_frame;
-					document.getElementsByClassName("title")[j].innerHTML = rooms[i].name;
-					document.getElementsByClassName("host")[j].innerHTML = rooms[i].host;
-					document.getElementsByClassName("desc")[j].innerHTML = rooms[i].description;
-					document.getElementsByClassName("capacity")[j].innerHTML = "Capacity: " + rooms[i].capacity + " person(s)";
-					document.getElementsByClassName("price")[j].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
-					j++
-				}
-				
 			}
 		}
 		
@@ -234,7 +235,7 @@
 						<td> <input id="checkin" class="datepicker"/> </td>
 						<td> <input id="checkout" class="datepicker"/> </td>
 						<td> 
-							<select>
+							<select id="personNumber">
 								<option value="1"> One </option>
 								<option value="2"> Two </option>
 								<option value="3"> Three </option>
