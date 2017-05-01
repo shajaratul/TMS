@@ -1,3 +1,8 @@
+<?php
+var_dump(file_get_contents('php://input'));
+var_dump($GLOBALS);
+?>
+
 <html>
 <head>
 	<title> TMS - Add Booking </title>

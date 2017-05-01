@@ -161,6 +161,7 @@
 						document.getElementsByClassName("desc")[j].innerHTML = rooms[i].description;
 						document.getElementsByClassName("capacity")[j].innerHTML = "Capacity: " + rooms[i].capacity + " person(s)";
 						document.getElementsByClassName("price")[j].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
+						
 						j++;
 					}
 					else if (new Date(document.getElementById("checkout").value) >= new Date(bookings[i].checkin) && new Date(document.getElementById("checkin").value) <= new Date(bookings[i].checkout) ){
@@ -173,6 +174,7 @@
 						document.getElementsByClassName("desc")[j].innerHTML = rooms[i].description;
 						document.getElementsByClassName("capacity")[j].innerHTML = "Capacity: " + rooms[i].capacity + " person(s)";
 						document.getElementsByClassName("price")[j].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
+						
 						j++
 					}
 				}
@@ -209,6 +211,44 @@
 				clearCanvas();
 				control();
 			}
+		}
+		
+		function test(){
+			// var xhttp = new XMLHttpRequest();
+			// xhttp.onreadystatechange = function() {
+				// if (this.readyState == 4 && this.status == 200) {
+				  // document.getElementById("demo").innerHTML = this.responseText;
+				// }
+			// };
+			// xhttp.open("POST", "SaveXML.php", true);
+			// xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			// xhttp.send("fname=Henry&lname=Ford");
+			
+			var xmlString = "<booking></booking>";
+			var parser = new DOMParser();
+			var xmlDoc = parser.parseFromString(xmlString, "text/xml");
+			
+			var node = xmlDoc.createElement("title");
+			var elements = xmlDoc.getElementsByTagName("booking");
+			elements[0].appendChild(node);
+			
+			var fd = new FormData();
+			fd.append("afile",xmlDoc);
+			
+			var obj = new XMLHttpRequest();
+			obj.open('POST', 'ui/view/booking.php', true);
+			//obj.setRequestHeader('Content-Type', 'text/xml');
+			obj.send(xmlDoc);
+			
+			obj.onreadystatechange = function(){
+				if(this.readyState == 4){
+					document.location.href = "ui/view/booking.php";
+				}
+			}
+		}
+		
+		function doBooking(){
+			
 		}
 		
 	</script>
