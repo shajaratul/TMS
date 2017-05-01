@@ -8,6 +8,10 @@
 
 <?php
 	session_start();
+	if(!isset($_SESSION['keyword'])){
+		header("location: index.php");
+	}
+	
 	$keyword = $_SESSION['keyword'];
 	
 	$place = getPlaceByName($keyword);
@@ -18,9 +22,14 @@
 	
 	$rooms = getRoomsByPlaceId($place['placeid']);
 	
-	foreach($rooms as $item){
-		echo $item['name'];
+	$bookings = array();
+	
+	foreach($rooms as $room){
+		$bookings[] = getBookingByRoomId($room['roomid']);
 	}
+	
+	// var_dump($bookings);
+	// var_dump($rooms);
 	
 	// $allPlaces = getAllPlaces();
 	// $places = array();
@@ -48,6 +57,9 @@
 <head>
 	<title> TMS </title>
 	
+	<link rel="stylesheet" type="text/css" href="ui/resources/datepicker.css" /> 
+	<script type="text/javascript" src="ui/resources/datepicker.js"></script>
+	
 	<style>
 		.frame{
 			float: left;
@@ -68,7 +80,17 @@
 	
 	<script type="text/javascript">
 		var rooms = <?php echo json_encode($rooms)?>;
-		var index = 0;
+		var bookings = <?php echo json_encode($bookings)?>;
+		var sr_frame;
+		var counter=0;
+		
+		addFrame();
+		// document.onreadystatechange = function(){
+			// if(document.readyState){
+		
+			// }
+		// }
+		
 		
 		function addFrame(){
 			var obj = new XMLHttpRequest();
@@ -76,27 +98,121 @@
 			obj.send();
 			obj.onreadystatechange = function(){
 				if(obj.readyState == 4){
-					document.getElementById("canvas").innerHTML += obj.responseText;
-					addContent();
-					index++;
+					sr_frame = obj.responseText;
+					init();
 				}
 			}
 		}
 		
-		for(var i in rooms){
-			addFrame();
+		function init(){ console.log("init called!");
+			for(var i=0; i<rooms.length; i++){
+				document.getElementById("canvas").innerHTML += sr_frame;
+				document.getElementsByClassName("title")[i].innerHTML = rooms[i].name;
+				document.getElementsByClassName("host")[i].innerHTML = rooms[i].host;
+				document.getElementsByClassName("desc")[i].innerHTML = rooms[i].description;
+				document.getElementsByClassName("capacity")[i].innerHTML = "Capacity: " + rooms[i].capacity + " person(s)";
+				document.getElementsByClassName("price")[i].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
+			}
 		}
 		
-		function addContent(){
-			document.getElementsByClassName("title")[index].innerHTML = rooms[index].name;
-			document.getElementsByClassName("host")[index].innerHTML = rooms[index].host;
-			document.getElementsByClassName("desc")[index].innerHTML = rooms[index].description;
-			document.getElementsByClassName("capacity")[index].innerHTML = "Capacity: " + rooms[index].capacity + " person(s)";
-			document.getElementsByClassName("price")[index].innerHTML = "Price: tk" + rooms[index].price + "/- per night";
+		// function control(){
+			// for(var i=0; i<rooms.length; i++){
+				// if(bookings[i] == null){
+					// if(counter < rooms.length){
+						// addData();console.log("control adddata 1 "+i);console.log("control counter"+i);
+					// }
+				// }
+				// else if (bookings[i].checkin < document.getElementById("checkout").value && bookings[i].checkout > document.getElementById("checkin").value){
+					// //counter = counter + 1;
+					// console.log("counter inc "+i);
+				// }
+				// else{
+					// if(counter < rooms.length){
+						// addData();console.log("control adddata 2 "+i);
+					// }
+				// }
+			// }
+		// }
+		
+		
+			
+		
+		// function addData(){
+			// document.getElementById("canvas").innerHTML += sr_frame;
+			// console.log("adddata called! counter: " + counter);
+			// document.getElementsByClassName("title")[counter].innerHTML = rooms[counter].name;
+			// document.getElementsByClassName("host")[counter].innerHTML = rooms[counter].host;
+			// document.getElementsByClassName("desc")[counter].innerHTML = rooms[counter].description;
+			// document.getElementsByClassName("capacity")[counter].innerHTML = "Capacity: " + rooms[counter].capacity + " person(s)";
+			// document.getElementsByClassName("price")[counter].innerHTML = "Price: tk." + rooms[counter].price + "/- per night";
+			// counter = counter + 1;
+			// console.log("adddata counter: " + counter);
 
+		// }
+		
+		function control(){
+			var j=0;
+			for(var i=0; i<rooms.length; i++){
+				if(bookings[i] == null){
+					document.getElementById("canvas").innerHTML += sr_frame;
+					document.getElementsByClassName("title")[j].innerHTML = rooms[i].name;
+					document.getElementsByClassName("host")[j].innerHTML = rooms[i].host;
+					document.getElementsByClassName("desc")[j].innerHTML = rooms[i].description;
+					document.getElementsByClassName("capacity")[j].innerHTML = "Capacity: " + rooms[i].capacity + " person(s)";
+					document.getElementsByClassName("price")[j].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
+					j++;
+				}
+				else if (bookings[i].checkin < document.getElementById("checkout").value && bookings[i].checkout > document.getElementById("checkin").value){
+					
+				}
+				else{
+					document.getElementById("canvas").innerHTML += sr_frame;
+					document.getElementsByClassName("title")[j].innerHTML = rooms[i].name;
+					document.getElementsByClassName("host")[j].innerHTML = rooms[i].host;
+					document.getElementsByClassName("desc")[j].innerHTML = rooms[i].description;
+					document.getElementsByClassName("capacity")[j].innerHTML = "Capacity: " + rooms[i].capacity + " person(s)";
+					document.getElementsByClassName("price")[j].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
+					j++
+				}
+				
+			}
+		}
+		
+		function addData(){
+			
+		}
+		
+		function clearCanvas(){
+			document.getElementById("canvas").innerHTML = "";
+			counter = 0;
+		}
+		
+		function filter(){
+			var flag = true;
+			if(document.getElementById("checkin").value == ""){
+				alert("Please select the check-in date");
+				flag = false;
+			}			
+			
+			if(document.getElementById("checkout").value == ""){
+				alert("Please select the check-out date");
+				flag = false;
+			}
+			
+			if(document.getElementById("checkin").value > document.getElementById("checkout").value){
+				alert("Please provide valid dates");
+				flag = false;
+			}
+			
+			if(flag){
+				clearCanvas();
+				control();
+			}
 		}
 		
 	</script>
+	
+	
 </head>
 
 <body>
@@ -111,38 +227,31 @@
 				<tr>
 					<td> <p> Check-in </p> </td>
 					<td> <p> Check-out </p> </td>
-					<td> <p> Adult </p> </td>
-					<td> <p> Children </p> </td>
+					<td> <p> Person </p> </td>
 				</tr>
 				<tr>
-					<td> <input type="text" name="checkinfield" value="dd/mm/yyyy"/> </td>
-					<td> <input type="text" name="checkoutfield" value="dd/mm/yyyy"/> </td>
-					<td> 
-						<select>
-							<option value="1"> One </option>
-							<option value="2"> Two </option>
-							<option value="3"> Three </option>
-							<option value="4"> Four </option>
-							<option value="5"> Five </option>
-						</select> 
-					</td>
-					<td> 
-						<select>
-							<option value="0"> Zero </option>
-							<option value="1"> One </option>
-							<option value="2"> Two </option>
-							<option value="3"> Three </option>
-							<option value="4"> Four </option>
-						</select> 
-					</td>
+					<div style="border:2px">
+						<td> <input id="checkin" class="datepicker"/> </td>
+						<td> <input id="checkout" class="datepicker"/> </td>
+						<td> 
+							<select>
+								<option value="1"> One </option>
+								<option value="2"> Two </option>
+								<option value="3"> Three </option>
+								<option value="4"> Four </option>
+								<option value="5"> Five </option>
+								<option value="6"> Six </option>
+							</select> 
+						</td>
+					</div>
 				</tr>
 				<tr>
-					<td colspan="4" align="center"> <input type="button" value="Filter"/> </td>
+					<td colspan="4" align="center"> <input type="button" value="Filter" onclick="filter()"/> </td>
 				</tr>
 			</table>
 		</div>
 		
-		<div id="canvas" style="margin:20px">
+		<div id="canvas" style="margin:20px; margin-top:100px">
 		</div>
 	</div>
 	
