@@ -1,6 +1,7 @@
 <?php require_once(APP_ROOT."/data/data_access.php") ?>
 
 <?php
+
 	function addUser($user){
 		return addUserToDb($person);
 	}
@@ -11,6 +12,10 @@
 	
 	function removeUser($id){
 		
+	}
+	
+	function getUserByLogin($login){
+		return getUserByLoginFromDb($login);
 	}
 	
 	function getAllPlaces(){

@@ -38,6 +38,16 @@
 		return $person;
 	}
 	
+	function getUserByLoginFromDb($login){
+		$query = "SELECT userid FROM users WHERE email='$login[email]' AND password='$login[password]'";  
+		$result = executeQuery($query);	
+		$userid = null;
+		if($result){
+			$userid = mysqli_fetch_assoc($result);
+		}
+		return $userid;
+	}
+	
 	function addPlaceToDb($place){ //adds a holiday destination to db. Rooms are assigned to a place. Admin only feature
 		$query = "INSERT INTO places(name, division) VALUES ('$place[name]', '$place[division]')";
 		return executeNonQuery($query);
