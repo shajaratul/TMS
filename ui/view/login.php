@@ -6,7 +6,7 @@
 	<body>
 		<div align="center">
 		<div align="center" style="width:500px; padding-top:150px">
-		<form action="./userhomepage.php">
+		<form method="post">
 		<fieldset>
 		<legend><h1>Sign In</h1></legend>
 		<table border="0">
@@ -17,7 +17,7 @@
 		<tr>
 			<td> <p><b>Password :<b></p> </td>
 			<td> <input type="password" name="password"/> </td>
-			<td> <a href="forget_password.php">Forget Password !!!</a> </td>
+			<td> <a href="index.php?show=newpass">Forget Password !!!</a> </td>
 		</tr>
 		</table>
 		<table border="0">
@@ -28,7 +28,7 @@
 		</table>
 		<hr/>
 		<h3>Don't have an account ?</h3>
-		<a href="sign_up.php">Click here to Registrater</a>
+		<a href="index.php?show=signup">Click here to Registrater</a>
 		<br><br>
 		<a href="index.php">Back to Home</a>
 		</fieldset>
@@ -37,3 +37,11 @@
 		</div>
 	</body>
 </html>
+
+<?
+
+
+
+?>
+
+

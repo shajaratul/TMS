@@ -11,7 +11,7 @@
 					
 					<div style="float:right;padding-right:80px">
 						<input type="button" name="getDetails" value="read more" onclick="openModal()"/>
-						<input type="button" value="book" onclick="test()"/>
+						<input type="button" name="submit" value="book" onclick="test()"/>
 					</div>
 					
 				</div>
