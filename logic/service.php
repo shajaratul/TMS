@@ -25,9 +25,18 @@
 		return getPlaceByDivisionFromDb($division);
 	}
 	
+	function getRoomById($id){
+		return getRoomByIdFromDb($id);
+	}
+	
 	function getRoomsByPlaceId($placeId){
 		return getRoomsByPlaceIdFromDb($placeId);
 	}
+	
+	function getBookingByRoomId($id){
+		return getBookingByRoomIdFromDb($id);
+	}
+	
 	
 	
 ?>

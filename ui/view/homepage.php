@@ -9,112 +9,7 @@
 <head>
 	<title> TMS Home Page </title>
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo">
-	<style>
-	ul {
-		list-style-type: none;
-		margin: 0px;
-		padding: 0px;
-		width: Auto;
-		height: Auto;
-		background-color: #f1f1f1;
-	}
-	
-	li {
-		float: right;
-	}
-	
-	li a {
-		display: block;
-		color: #000;
-		padding: 8px 16px;
-		text-decoration: none;
-	}
-	
-	li a.active {
-		background-color: #3366ff;
-		color: white;
-	}
-	
-	li a.active:hover {
-		background-color: #33ccff;
-		color: white;
-	}
-	
-	li a:hover:not(.active) {
-		background-color: #555;
-		color: white;
-	}
-	
-	#search {
-		margin-top: 10%;
-		text-align: center;
-		color: #1a1a00;
-		font-family: Arvo;
-	}
-	
-	body {
-		margin: 0px;
-		padding: 0px;
-		
-	}
-	
-	#page-1 {
-		background: url(ui/images/sajek.jpg);
-		background-attachment: fixed;
-		background-size: auto;
-		height: 100%;
-	}
-	
-	#page-2 {
-		background: url(ui/images/village.jpg);
-		background-attachment: fixed;
-		background-size: cover;
-		height: 100%;
-		
-		
-	}
-	
-	#page-2 h1 {
-		padding: 20px;
-		margin: 0px;
-		color: white;
-		background-color: #0a1429;
-		font-family: Arvo;
-		width: 25%;
-	}
-	
-	#site-header {
-		color: white;
-		padding: 20px;
-		margin: 0px;
-		width: 50%;
-	}
-	
-	.site-nav {
-		margin: 0px;
-		padding: 0px;
-		position: relative;
-		top: 0px;
-		right: 10px;
-		
-	}
-	
-	#grid {
-		padding-left: 15%;
-		padding-right: 10%;
-		padding-top: 2%;
-		margin: 0;
-	}
-	
-	.place-name {
-		padding: 10px;
-		margin: 0px;
-		color: white;
-		background-color: #0a1429;
-		font-family: Arvo;
-		width: 25%;
-	}
-	</style>
+	<link rel="stylesheet" type="text/css" href="ui/resources/homepage.css">
 <head>
 
 <body>
@@ -124,9 +19,9 @@
 			
 			<div class="site-nav">
 			<ul>
-				<li><a href="index?show=signup"> Sign UP </a></li>
-				<li><a href="index?show=login"> Login </a></li>
-				<li><a href="index?show=contact"> Contact </a></li>
+				<li><a href="index.php?show=signup"> Sign UP </a></li>
+				<li><a href="index.php?show=login"> Login </a></li>
+				<li><a href="index.php?show=contact"> Contact </a></li>
 				<li><a href="#page-3"> Holiday Packages </a></li>
 				<li><a href="#page-2"> Places </a></li>
 				<li><a href="#"> Home </a></li>
@@ -204,7 +99,7 @@
 		
 		$keyword = trim($_REQUEST['keyword']);
 		$_SESSION['keyword'] = $keyword;
-		header("location: index?show=search");
+		header("location: index.php?show=search");
 		
 	}
 	

@@ -67,8 +67,8 @@
 	</style>
 	
 	<script type="text/javascript">
-		var rooms = <?php echo json_encode($rooms)?>
-		
+		var rooms = <?php echo json_encode($rooms)?>;
+		var index = 0;
 		
 		function addFrame(){
 			var obj = new XMLHttpRequest();
@@ -77,6 +77,8 @@
 			obj.onreadystatechange = function(){
 				if(obj.readyState == 4){
 					document.getElementById("canvas").innerHTML += obj.responseText;
+					addContent();
+					index++;
 				}
 			}
 		}
@@ -84,6 +86,16 @@
 		for(var i in rooms){
 			addFrame();
 		}
+		
+		function addContent(){
+			document.getElementsByClassName("title")[index].innerHTML = rooms[index].name;
+			document.getElementsByClassName("host")[index].innerHTML = rooms[index].host;
+			document.getElementsByClassName("desc")[index].innerHTML = rooms[index].description;
+			document.getElementsByClassName("capacity")[index].innerHTML = "Capacity: " + rooms[index].capacity + " person(s)";
+			document.getElementsByClassName("price")[index].innerHTML = "Price: tk" + rooms[index].price + "/- per night";
+
+		}
+		
 	</script>
 </head>
 
@@ -133,4 +145,5 @@
 		<div id="canvas" style="margin:20px">
 		</div>
 	</div>
+	
 </body>
