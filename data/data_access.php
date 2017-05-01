@@ -102,7 +102,7 @@
 	}
 	
 	function addRoomToDb($room){ // adds a hotel room under a place. Admin only
-		$query = "INSERT INTO rooms(name, host, description, details, capacity, price, placeid) VALUES ('$room[name]', '$room[host]', '$room[description]', '$room[details]', $room[capacity], $room[price], $room[placeid])";
+		$query = "INSERT INTO rooms( name, host, description, details, capacity, price, placeid) VALUES ('$room[name]', '$room[host]', '$room[description]', '$room[details]', $room[capacity], $room[price], $room[placeid])";
 		return executeNonQuery($query);
 	}
 	
@@ -124,18 +124,6 @@
 			$room = mysqli_fetch_assoc($result);
 		}
 		return $room;
-	}
-	
-	function getRoomsByBookingIdFromDb($id){ //gets details of room(s) booking by a user.
-		$query = "SELECT * FROM rooms WHERE bookingid=$id";  
-		$result = executeQuery($query);	
-		$roomList = array();
-		if($result){
-			for($i=0; $row = mysqli_fetch_assoc($result); ++$i) {
-				$roomList[$i] = $row;				
-			}
-		}
-		return $roomList;
 	}
 	
 	function getRoomsByPlaceIdFromDb($id){ //gets rooms in a particular place
@@ -163,12 +151,12 @@
 	}
 	
 	function addBookingToDb($booking){ //adds a booking which includes room info when user completes booking process.
-		$query = "INSERT INTO bookings(userid, roomid, checkin, checkout, duration, person, child, tour, rentcar, rentbike, rentswimgear, rentboat, total, payment_method, requests) VALUES ($booking[userid], $booking[roomid], '$booking[checkin]', '$booking[checkout]', $booking[duration], $booking[person], $booking[child], $booking[tour], $booking[rentcar], $booking[rentbike], $booking[rentswimgear], $booking[rentboat], $booking[total], $booking[payment_method], '$booking[requests]')";
+		$query = "INSERT INTO bookings(userid, roomid, checkin, checkout, person, tour, rentcar, rentbike, rentswimgear, rentboat, total, payment_method, requests) VALUES ($booking[userid], $booking[roomid], '$booking[checkin]', '$booking[checkout]', $booking[person], $booking[tour], $booking[rentcar], $booking[rentbike], $booking[rentswimgear], $booking[rentboat], $booking[total], $booking[payment_method], '$booking[requests]')";
 		return executeNonQuery($query);
 	}
 	
 	function editBookingToDb($booking){ //edits an existing booking. Admin only feature
-		$query = "UPDATE bookings SET userid=$booking[userid], roomid=$booking[roomid], checkin='$booking[checkin]', checkout='$booking[checkout]', duration=$booking[duration], person=$booking[person], child=$booking[child], tour=$booking[tour], rentcar=$booking[rentcar], rentbike=$booking[rentbike], rentswimgear=$booking[rentswimgear], rentboat=$booking[rentboat], total=$booking[total], payment_method=$booking[payment_method], requests='$booking[requests]' WHERE bookingid=$booking[id]";
+		$query = "UPDATE bookings SET userid=$booking[userid], roomid=$booking[roomid], checkin='$booking[checkin]', checkout='$booking[checkout]', person=$booking[person], tour=$booking[tour], rentcar=$booking[rentcar], rentbike=$booking[rentbike], rentswimgear=$booking[rentswimgear], rentboat=$booking[rentboat], total=$booking[total], payment_method=$booking[payment_method], requests='$booking[requests]' WHERE bookingid=$booking[id]";
 		return executeNonQuery($query);
 	}
 	
@@ -178,7 +166,7 @@
 	}
 	
 	function getBookingByIdFromDb($id){ //gets details of a particular booking
-		$query = "SELECT userid, roomid, checkin, checkout, duration, person, child, tour, rentcar, rentbike, rentswimgear, rentboat, total, payment_method, requests FROM bookings WHERE bookingid=$id";  
+		$query = "SELECT userid, roomid, checkin, checkout, person, tour, rentcar, rentbike, rentswimgear, rentboat, total, payment_method, requests FROM bookings WHERE bookingid=$id";  
 		$result = executeQuery($query);	
 		$booking = null;
 		if($result){
@@ -188,7 +176,7 @@
 	}
 	
 	function getBookingsByUserIdFromDb($id){ // gets details of a particular booking by user id
-		$query = "SELECT bookingid, roomid, checkin, checkout, duration, person, child, tour, rentcar, rentbike, rentswimgear, rentboat, total, payment_method, requests FROM bookings WHERE userid=$id";  
+		$query = "SELECT bookingid, roomid, checkin, checkout, person, tour, rentcar, rentbike, rentswimgear, rentboat, total, payment_method, requests FROM bookings WHERE userid=$id";  
 		$result = executeQuery($query);	
 		$booking = null;
 		if($result){
@@ -197,8 +185,8 @@
 		return $booking;
 	}
 	
-	function getBookingsByRoomIdFromDb($id){ // gets details of a particular booking by room id
-		$query = "SELECT bookingid, userid, checkin, checkout, duration, person, child, tour, rentcar, rentbike, rentswimgear, rentboat, total, payment_method, requests FROM bookings WHERE roomid=$id";  
+	function getBookingByRoomIdFromDb($id){ // gets details of a particular booking by room id
+		$query = "SELECT bookingid, userid, checkin, checkout, person, tour, rentcar, rentbike, rentswimgear, rentboat, total, payment_method, requests FROM bookings WHERE roomid=$id";  
 		$result = executeQuery($query);	
 		$booking = null;
 		if($result){
@@ -208,7 +196,7 @@
 	}
 	
 	function getAllBookingsFromDb(){ //gets a list of all booking made currently recorded in the system.
-		$query = "SELECT bookingid, userid, roomid, checkin, checkout, duration, person, child, tour, rentcar, rentbike, rentswimgear, rentboat, total, payment_method, requests FROM bookings";  
+		$query = "SELECT bookingid, userid, roomid, checkin, checkout, person, tour, rentcar, rentbike, rentswimgear, rentboat, total, payment_method, requests FROM bookings";  
 		$result = executeQuery($query);	
 		$bookingList = array();
 		if($result){
