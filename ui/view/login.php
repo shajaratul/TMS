@@ -1,34 +1,39 @@
 <html>
-<head>
-	<title> Login to travel.com </title>
-</head>
+	<head>
+		<title>Sign In</title>
+	</head>
 
-<body>
-	<div align="center" style="padding-top:40px">
-	<form action="./userhomepage.php">
-	<h1> Log In </h1>
-	<table border="0">
-	<tr>
-		<td> <p> email: </p> </td>
-		<td> <input type="text" name="userfield"/> </td>
-	</tr>
-	<tr>
-		<td> <p> Password: </p> </td>
-		<td> <input type="password" name="passfield"/> </td>
-		<td> <a href="./forgetpass.php"> Forgot Password </a>
-	</tr>
-	</table>
-	<table border="0">
-	<tr> </tr>
-	<tr colspan="2" align="center">
-		<td> <input type="submit" Value="Login"/> </td>
-	</tr>
-	<tr colspan="2" align="center">
-		<td> Don't have an account?
-		<a href="signup.php"> Click here to register </a> </td>
-	</tr>
-	</table>
-	</form>
-	</div>
-</body>
-
+	<body>
+		<div align="center">
+		<div align="center" style="width:500px; padding-top:150px">
+		<form action="./userhomepage.php">
+		<fieldset>
+		<legend><h1>Sign In</h1></legend>
+		<table border="0">
+		<tr>
+			<td> <p><b>Email :</b></p> </td>
+			<td> <input type="text" name="email"/> </td>
+		</tr>
+		<tr>
+			<td> <p><b>Password :<b></p> </td>
+			<td> <input type="password" name="password"/> </td>
+			<td> <a href="forget_password.php">Forget Password !!!</a> </td>
+		</tr>
+		</table>
+		<table border="0">
+		<tr> </tr>
+		<tr colspan="2" align="center">
+			<td> <input type="button" Value="Sign In"/> </td>
+		</tr>
+		</table>
+		<hr/>
+		<h3>Don't have an account ?</h3>
+		<a href="sign_up.php">Click here to Registrater</a>
+		<br><br>
+		<a href="index.php">Back to Home</a>
+		</fieldset>
+		</form>
+		</div>
+		</div>
+	</body>
+</html>
