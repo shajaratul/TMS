@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2017 at 03:25 AM
+-- Generation Time: May 02, 2017 at 03:49 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -30,14 +30,9 @@ CREATE TABLE `bookings` (
   `bookingid` int(11) NOT NULL,
   `userid` int(11) NOT NULL,
   `roomid` int(11) NOT NULL,
-  `checkin` date NOT NULL,
-  `checkout` date NOT NULL,
+  `checkin` varchar(10) NOT NULL,
+  `checkout` varchar(10) NOT NULL,
   `person` int(11) NOT NULL,
-  `tour` int(11) NOT NULL,
-  `rentcar` int(11) NOT NULL,
-  `rentbike` int(11) NOT NULL,
-  `rentswimgear` int(11) NOT NULL,
-  `rentboat` int(11) NOT NULL,
   `total` int(11) NOT NULL,
   `payment_method` int(11) NOT NULL,
   `requests` text
@@ -47,8 +42,8 @@ CREATE TABLE `bookings` (
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`bookingid`, `userid`, `roomid`, `checkin`, `checkout`, `person`, `tour`, `rentcar`, `rentbike`, `rentswimgear`, `rentboat`, `total`, `payment_method`, `requests`) VALUES
-(1, 1, 3, '2017-05-05', '2017-05-07', 1, 0, 0, 0, 0, 0, 13280, 1, 'None');
+INSERT INTO `bookings` (`bookingid`, `userid`, `roomid`, `checkin`, `checkout`, `person`, `total`, `payment_method`, `requests`) VALUES
+(1, 1, 3, '5-May-2017', '7-May-2017', 1, 13280, 1, 'None');
 
 -- --------------------------------------------------------
 
@@ -142,8 +137,7 @@ CREATE TABLE `tickets` (
 
 CREATE TABLE `users` (
   `userid` int(11) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `contactno` varchar(14) NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -154,8 +148,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userid`, `firstname`, `lastname`, `email`, `contactno`, `password`, `usertype`) VALUES
-(1, 'Simon', 'Rivera', 'r.simon@gmail.com', '11111111111111', '1', 0);
+INSERT INTO `users` (`userid`, `name`, `email`, `contactno`, `password`, `usertype`) VALUES
+(1, 'Simon', 'r.simon@gmail.com', '11111111111111', '1', 0);
 
 --
 -- Indexes for dumped tables
