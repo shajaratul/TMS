@@ -2,12 +2,12 @@
 
 <?php
 	function addUserToDb($user){  //this function adds user to the database through signup page
-		$query = "INSERT INTO users(firstname, lastname, email, contactno, password, usertype) VALUES ('$user[firstName]', '$user[lastName]', '$user[email]', '$user[contactNo]', '$user[password]', $user[userType])";
+		$query = "INSERT INTO users(name, email, contactno, password, usertype) VALUES ('$user[firstName]', '$user[lastName]', '$user[email]', '$user[contactNo]', '$user[password]', $user[userType])";
 		return executeNonQuery($query);
 	}
 	
 	function editUserToDb($user){ //edit user details from the user profile page
-		$query = "UPDATE users SET firstname='$user[firstName]', lastname='$user[lastName]', email='$user[email]', contactno='$user[contactNo]', password='$user[password]' WHERE userid=$user[id]";
+		$query = "UPDATE users SET name='$user[name]', email='$user[email]', contactno='$user[contactNo]', password='$user[password]' WHERE userid=$user[id]";
 		return executeNonQuery($query);
 	}
 	
@@ -17,7 +17,7 @@
 	}
 	
 	function getAllUsersFromDb(){ //Gets list of all users from db. Admin only feature.
-		$query = "SELECT userid, firstname, lastname, email, contactno, usertype FROM users";  
+		$query = "SELECT userid, name, email, contactno, usertype FROM users";  
 		$result = executeQuery($query);	
 		$userList = array();
 		if($result){
@@ -29,7 +29,7 @@
 	}
 	
 	function getUserByIdFromDb($id){ //gets an individual user's details from database. Used in user profile page.
-		$query = "SELECT firstname, lastname, email, contactno, usertype FROM users WHERE userid=$id";  
+		$query = "SELECT name, email, contactno, usertype FROM users WHERE userid=$id";  
 		$result = executeQuery($query);	
 		$person = null;
 		if($result){

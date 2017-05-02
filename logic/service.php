@@ -14,9 +14,14 @@
 		
 	}
 	
+	function getUserById($id){
+		return getUserByIdFromDb($id);
+	}
+	
 	function getUserByLogin($login){
 		return getUserByLoginFromDb($login);
 	}
+	
 	
 	function getAllPlaces(){
 		return getAllPlacesFromDb();

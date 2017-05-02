@@ -39,7 +39,7 @@
 <body>
 	<h1> Add Booking </h1>
 	<fieldset>
-	<form action="index.php">
+	<form method="post">
 		<fieldset>
 			<legend> Booking Details </legend>
 			<table border="0" width="100%">
@@ -70,11 +70,11 @@
 					<tr>
 						<td> <h4> Payment Method </h4> </td>
 						<td>
-							<input type="radio" name="payment" value="0"> Pay when checking in </input>
+							<input type="radio" name="payment" value="1"> Pay when checking in </input>
 							<br/>
-							<input type="radio" name="payment" value="1" disabled='disabled'> Pay with your ATM card </input>
+							<input type="radio" name="payment" value="2" disabled='disabled'> Pay with your ATM card </input>
 							<br/>
-							<input type="radio" name="payment" value="2" disabled='disabled'> Pay with bKash/Rocket </input>
+							<input type="radio" name="payment" value="3" disabled='disabled'> Pay with bKash/Rocket </input>
 							<br/>
 							<br/>
 						</td>
@@ -101,18 +101,18 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 	
 	$bkng = array();
 	$bkng['userid'] = $_SESSION['id'];
-	$bkng['roomid'] = $_SESSION['bookingDetails']['roomId']
+	$bkng['roomid'] = $_SESSION['bookingDetails']['roomId'];
 	$bkng['checkin'] = $checkIn;
 	$bkng['checkout'] = $checkOut;
 	$bkng['person'] = $personNumber;
 	$bkng['total'] = $totalPrice;
 	$bkng['payment_method'] = 0;
-	$bkng['requests'] = $_REQUEST['specialres'];
+	$bkng['requests'] = $_REQUEST['specialreq'];
 	
 	addBooking($bkng);
+	echo "<script> alert('Booking Successful');</script>";
+	echo "<script> window.location.href = 'index.php'</script>";
+	
 
 }
-?>
-
-
 ?>
