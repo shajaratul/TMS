@@ -72,13 +72,13 @@
 	<div id="dashboard">
 		<fieldset>
 			<legend> View Tickets </legend>
-				<table>
+				<table border="1" cellspacing="5">
 					<tr>
 						<td> Ticket ID </td>
 						<td> User ID </td>
 						<td> Status </td>
 						<td> Time </td>
-						<td> Title Type </td>
+						<td> Title </td>
 						<td> Type </td>
 						<td> Description </td>
 						<td> Response </td>
@@ -86,6 +86,22 @@
 						<td> Edit </td>
 						<td> Remove </td>
 					</tr>
+					<?php
+						$tickets = getAllTickets();
+						foreach($tickets as $ticket){
+						echo "<tr>
+								<td>$ticket[ticketid]</td>
+								<td>$ticket[userid]</td>
+								<td>$ticket[status]</td>
+								<td>$ticket[time]</td>
+								<td>$ticket[title]</td>
+								<td>$ticket[type]</td>
+								<td>$ticket[description]</td>
+								<td>$ticket[response]</td>
+							</tr>";
+						}
+						?>
+					
 				</table>
 		</fieldset>
 	</div>

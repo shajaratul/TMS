@@ -72,7 +72,7 @@
 	<div id="dashboard">
 		<fieldset>
 			<legend> Users </legend>
-				<table>
+				<table border="1">
 					<tr>
 						<td> ID </td>
 						<td> Name </td>
@@ -83,6 +83,19 @@
 						<td> Edit </td>
 						<td> Remove </td>
 					</tr>
+					
+					<?php
+						$users = getAllUsers();
+						foreach($users as $user){
+						echo "<tr>
+								<td>$user[userid]</td>
+								<td>$user[name]</td>
+								<td>$user[email]</td>
+								<td>$user[contactno]</td>
+								<td>$user[usertype]</td>
+							</tr>";
+						}
+						?>
 
 				</table>
 		</fieldset>
@@ -92,10 +105,4 @@
 </body>
 </html>
 
-<?php
 
-$users = getAllUsers();
-
-var_dump($users);
-
-?>

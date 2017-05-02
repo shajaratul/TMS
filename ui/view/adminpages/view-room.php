@@ -72,7 +72,7 @@
 	<div id="dashboard">
 		<fieldset>
 			<legend> Users </legend>
-				<table>
+				<table border="1" cellspacing="5">
 					<tr>
 						<td> Room ID </td>
 						<td> Place ID </td>
@@ -86,6 +86,22 @@
 						<td> Edit </td>
 						<td> Remove </td>
 					</tr>
+					
+					<?php
+						$rooms = getAllRooms();
+						foreach($rooms as $room){
+						echo "<tr>
+								<td>$room[roomid]</td>
+								<td>$room[placeid]</td>
+								<td>$room[name]</td>
+								<td>$room[host]</td>
+								<td>$room[description]</td>
+								<td>$room[details]</td>
+								<td>$room[capacity]</td>
+								<td>$room[price]</td>
+							</tr>";
+						}
+						?>
 				</table>
 		</fieldset>
 	</div>

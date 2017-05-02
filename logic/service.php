@@ -51,12 +51,24 @@
 		return getRoomsByPlaceIdFromDb($placeId);
 	}
 	
+	function getAllRooms(){
+		return getAllRoomsFromDb();
+	}
+	
 	function addBooking($booking){
 		return addBookingToDb($booking);
 	}
 	
 	function getBookingByRoomId($id){
 		return getBookingByRoomIdFromDb($id);
+	}
+	
+	function getAllBookings(){
+		return getAllBookingsFromDb();
+	}
+	
+	function getAllTickets(){
+		return getAllTicketsFromDb();
 	}
 	
 	

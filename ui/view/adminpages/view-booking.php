@@ -72,7 +72,7 @@
 	<div id="dashboard">
 		<fieldset>
 			<legend>View Bookings </legend>
-				<table>
+				<table border="1" cellspacing="5">
 					<tr>
 						<td>Booking ID </td>
 						<td>User ID </td>
@@ -87,6 +87,24 @@
 						<td> Edit </td>
 						<td> Remove </td>
 					</tr>
+					
+					<?php
+						$bookings = getAllBookings();
+						foreach($bookings as $booking){
+						echo "<tr>
+								<td>$booking[bookingid]</td>
+								<td>$booking[userid]</td>
+								<td>$booking[roomid]</td>
+								<td>$booking[checkin]</td>
+								<td>$booking[checkout]</td>
+								<td>$booking[person]</td>
+								<td>$booking[total]</td>
+								<td>$booking[payment_method]</td>
+								<td>$booking[requests]</td>
+							</tr>";
+						}
+						?>
+					
 				</table>
 		</fieldset>
 	</div>
