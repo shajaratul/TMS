@@ -106,7 +106,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 	$userid = getUserByLogin($login);
 	
 	if($userid != null){
-		$_SESSION['id'] = $userid;
+		$_SESSION['id'] = $userid['userid'];
 		header("location: index.php?show=home");
 	}
 	else
