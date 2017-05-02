@@ -6,20 +6,21 @@
 	<body>
 		<div align="center">
 		<div align="center" style="width:500px; padding-top:150px">
-		<form id="form1" action="registration_validation.php" method="post">
+		<form id="form1" method="post">
 		<fieldset>
 		<legend><h1>Registration</h1></legend>
 		<table border="0">
 		<tr>
-			<td> <p><b>Name :</b></p> </td>
+			<td> <p><b>Name:</b></p> </td>
 			<td> <input type="text" id="name" name="name"/> </td>
 		</tr>
+		
 		<tr>
-			<td> <p><b>Email :</b></p> </td>
+			<td> <p><b>Email:</b></p> </td>
 			<td> <input type="text" id="email" name="email"/> </td>
 		</tr>
 		<tr>
-			<td> <p><b>Contact No :</b></p> </td>
+			<td> <p><b>Contact No:</b></p> </td>
 			<td> <input type="text" id="contact" name="contact"/> </td>
 		</tr>
 		<tr>
@@ -27,7 +28,7 @@
 			<td> <input type="password" id="password" name="password"/> </td>
 		</tr>
 		<tr>
-			<td> <p><b>Re-type Password :</b></p> </td>
+			<td> <p><b>Re-type Password:</b></p> </td>
 			<td> <input type="password" id="repassword" name="repassword"/> </td>
 		</tr>
 		</table>
@@ -38,7 +39,7 @@
 		</table>
 		<hr/>
 		<h3>Already have an account ?</h3>
-		<a href="./sign_in.php">Click here to Sign In</a>
+		<a href="index.php?show=login">Click here to Sign In</a>
 		<br><br>
 		<a href="index.php">Back to Home</a>
 		</fieldset>
@@ -218,7 +219,7 @@
 				var form = document.getElementById("form1");
                 if(NameValidation()==true&&EmailValidation()==true&&PhoneValidation()==true&&passwordChecked()==true&&confirmPassword()==true)
 				{
-					alert("Registration Successfull ...");
+					alert("Registration Successful ...");
                     form.submit();
                 }		
 	        }
@@ -227,3 +228,134 @@
 		</div>
 	</body>
 </html>
+
+
+<?php
+if($_SERVER['REQUEST_METHOD']=="POST"){
+		$user_name=$_POST['name'];	
+		$user_email=$_POST['email'];
+		$user_contactNo=$_POST['contact'];
+		$password=$_POST['password'];
+		$confirm_password=$_POST['repassword'];
+		$words=explode("@",$user_email);
+		$letter= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+		
+		$error = true;
+
+		if($user_name==''){
+			echo"Entter your name please !!!<br/>";
+			$error = true;
+		}else if(strpos($letter,$user_name[0])==false){
+			echo "Name must start with Letter !!!<br/>";
+			$error = true;
+		}else if(str_word_count($user_name)<2){
+			echo "Name must have two words !!!<br/>";
+			$error = true;
+		}else{
+			$error = false;
+			//echo $user_name."<br/>";
+		}
+		
+		if($user_email==''){
+			echo "Enter your email address !!!<br/>";
+			$error = true;
+		}else{
+			if(count($words)<2){
+				echo "Invalide formate !!!<br/>";
+				$error = true;
+			}else{
+				if($words[1]==''){
+					echo "Domain name missing !!!";
+					$error = true;
+				}else{
+					$word=explode(".",$words[1]);
+					if(count($word)<2){
+						echo "wrong Pattern !!!<br/>";
+						$error = true;
+					}else{
+						$error = false;
+						//echo $user_email."<br/>";
+					}
+				}
+			}
+		}
+		
+		if(strlen($user_contactNo)<11 && strlen($user_contactNo)>11){
+			echo "Invalid contact number !!!";
+		}
+		
+		if( strlen($password) < 5 ) {
+		echo "Password too short !!! <br/>";
+			$error = true;
+		}else{
+			if( strlen($password) > 15 ) {
+				echo  "Password too long !!! <br/>";
+				$error = true;
+			}else{
+				if( strlen($password) < 5) {
+				echo "Password too short !!! <br/>";
+				$error = true;
+				}else{
+					if( !preg_match("#[0-9]+#", $password) ) {
+						echo"Password must include at least one number !!! <br/>";
+						$error = true;
+					}else{
+						if( !preg_match("#[a-z]+#", $password) ) {
+						echo"Password must include at least one letter !!!<br/>";
+						$error = true;
+						}else{
+							if( !preg_match("#[A-Z]+#", $password) ) {
+								echo "Password must include at least one CAPS !!! <br/>";
+								$error = true;
+							}else{
+								if( !preg_match("/[^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[‌​\d])\S*$]/", $password) ) {
+									echo "Password must include at least one symbol !!!<br/> ";
+									$error = true;
+								}else {
+									if(preg_match("/[~`!@#$%^&*()_-+=\[\]{}\|\\:;\"\'<,>.]/", $password)){
+										echo "Password must include at least one special character !!!<br/> ";
+										$error = true;
+									}else{
+									$error = false;
+										//echo $password."<br/>";
+										//echo "Your password is strong.<br/>";
+										}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		if($confirm_password!=$password){
+			echo "Password don't match !!!";
+			$error = true;
+		}else{
+				if($confirm_password==''){
+					echo "Password don't match !!!";
+					$error = true;
+				}else{
+					if($password==''){
+						echo "Password don't match !!!";
+						$error = true;
+					}else{
+						$error = false;
+						//$password=md5($password);
+						//echo "Your password is strong.<br/>";
+					}
+				}
+			 }
+			 
+		if($error == false){
+			$newUser = array();
+			$newUser['name']=$user_name;
+			$newUser['email']=$user_email;
+			$newUser['contact']=$user_contactNo;
+			$newUser['password']=$password;
+			addUser($newUser);
+			header('Location:index.php?show=login');
+		}
+		else{echo"Registion Failed ...";}
+}
+?>
