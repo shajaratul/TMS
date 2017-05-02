@@ -67,44 +67,75 @@
 			<li><a href="index.php?show=logout"> Logout </a></li>
 
 		</ul>
+
 	</div>
 	
 	<div id="dashboard">
 		<fieldset>
-			<legend> Add User </legend>
+			<legend> Edit Booking </legend>
 			<form method="post">
 			<table>
 				<tr>
-					<td> Name: </td>
-					<td> <input type="text" name="name"/> </td>
+					<td>Book ID</td>
+					<td> <input type="text" name="#"/> </td>
 				</tr>
 				
 				<tr>
-					<td> Email: </td>
-					<td> <input type="text" name="email"/> </td>
+					<td>User ID</td>
+					<td> <input type="text" name="#"/> </td>
 				</tr>
 				
 				<tr>
-					<td> Contact No: </td>
-					<td> <input type="text" name="contactno"/> </td>
+					<td> Room ID </td>
+					<td> <input type="text" name="#"/> </td>
 				</tr>
 				
 				<tr>
-					<td> Password: </td>
-					<td> <input type="password" name="password"/> </td>
+					<td>Check In</td>
+					<td> <input type="date"/> </td>
+				</tr>
+
+				<tr>
+					<td>Check Out</td>
+					<td> <input type="date"/> </td>
 				</tr>
 				
 				<tr>
-					<td> User Type: </td>
-					<td> <select name="usertype">
-						  <option value="0">User</option>
-						  <option value="1">Admin</option>
+					<td> Person </td>
+					<td> <select name="#">
+						  <option value="0">1</option>
+						  <option value="1">2</option>
+						  <option value="2">3</option>
+						  <option value="3">4</option>
+						  <option value="4">5</option>
 						</select> </td>
 				</tr>
 				
 				<tr>
+					<td>Total Amount</td>
+					<td> <input type="text"/> </td>
+				</tr>
+				
+				<tr>
+					<td>Payment Method</td>
+					<td> <select name="#">
+						  <option value="0">Method 1</option>
+						  <option value="1">Method 2</option>
+						  <option value="2">Method 3</option>
+						  <option value="3">Method 4</option>
+						  </select> 
+					</td>
+				</tr>
+
+				<tr>
+					<td>Requests</td>
+					<td> <input type="text"/> </td>
+				</tr>
+
+
+				<tr>
 					<td>  </td>
-					<td> <input type="submit" value="Add"/> </td>
+					<td> <input type="submit" value="Edit Bookings"/> </td>
 				</tr>
 				
 			</table>
@@ -115,19 +146,3 @@
 	</div>
 </body>
 </html>
-
-<?php
-
-if($_SERVER['REQUEST_METHOD']=="POST"){
-	$newUser = array();
-	$newUser['name'] = trim($_REQUEST['name']);
-	$newUser['email'] = trim($_REQUEST['email']);
-	$newUser['contactNo'] = trim($_REQUEST['contactno']);
-	$newUser['password'] = trim($_REQUEST['password']);
-	$newUser['userType'] = $_REQUEST['usertype'];
-	
-	addUser($newUser);
-	echo "<script> window.location.href = 'index.php?show=user-view'</script>";
-}
-
-?>

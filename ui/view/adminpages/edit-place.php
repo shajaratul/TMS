@@ -65,46 +65,48 @@
 			<li><a href="index.php?show=room-view"> Rooms </a></li>
 			<li><a href="index.php?show=user-view"> Users </a></li>
 			<li><a href="index.php?show=logout"> Logout </a></li>
-
 		</ul>
+
 	</div>
 	
 	<div id="dashboard">
 		<fieldset>
-			<legend> Add User </legend>
+			<legend> Add Place</legend>
 			<form method="post">
 			<table>
 				<tr>
-					<td> Name: </td>
-					<td> <input type="text" name="name"/> </td>
+					<td> Place ID </td>
+					<td> <input type="text" name="#"/> </td>
 				</tr>
 				
 				<tr>
-					<td> Email: </td>
-					<td> <input type="text" name="email"/> </td>
+					<td> Place Name </td>
+					<td> <input type="text" name="#"/> </td>
 				</tr>
 				
 				<tr>
-					<td> Contact No: </td>
-					<td> <input type="text" name="contactno"/> </td>
+					<td>Division</td>
+					<td> <select name="#">
+						  <option value="0">Dhaka</option>
+						  <option value="1">Chittagong</option>
+						  <option value="2">Barisal</option>
+						  <option value="3">Mymensingh</option>
+						  <option value="4">Khulna</option>
+						  <option value="5">Rajshahi</option>
+						  <option value="6">Rangpur</option>
+						  <option value="3">Sylhet</option>
+						  </select> 
+					</td>
 				</tr>
-				
+
 				<tr>
-					<td> Password: </td>
-					<td> <input type="password" name="password"/> </td>
-				</tr>
-				
-				<tr>
-					<td> User Type: </td>
-					<td> <select name="usertype">
-						  <option value="0">User</option>
-						  <option value="1">Admin</option>
-						</select> </td>
+					<td> Place Details </td>
+					<td> <input type="text" name="#"/> </td>
 				</tr>
 				
 				<tr>
 					<td>  </td>
-					<td> <input type="submit" value="Add"/> </td>
+					<td> <input type="submit" value="Edit Place"/> </td>
 				</tr>
 				
 			</table>
@@ -115,19 +117,3 @@
 	</div>
 </body>
 </html>
-
-<?php
-
-if($_SERVER['REQUEST_METHOD']=="POST"){
-	$newUser = array();
-	$newUser['name'] = trim($_REQUEST['name']);
-	$newUser['email'] = trim($_REQUEST['email']);
-	$newUser['contactNo'] = trim($_REQUEST['contactno']);
-	$newUser['password'] = trim($_REQUEST['password']);
-	$newUser['userType'] = $_REQUEST['usertype'];
-	
-	addUser($newUser);
-	echo "<script> window.location.href = 'index.php?show=user-view'</script>";
-}
-
-?>

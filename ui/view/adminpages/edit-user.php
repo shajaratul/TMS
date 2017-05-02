@@ -65,12 +65,12 @@ $user = getUserById($_SESSION['edituser']);
 
 	<div>	
 		<ul>
-			<li><a href="#"> Support Tickets</a></li>
-			<li><a href="#"> Holiday Packages </a></li>
-			<li><a href="#"> Bookings </a></li>
-			<li><a href="#"> Places </a></li>
-			<li><a href="#"> Rooms </a></li>
-			<li><a href="#"> Users </a></li>
+			<li><a href="index.php?show=ticket-view"> Support Tickets</a></li>
+			<li><a href="index.php?show=booking-view"> Bookings </a></li>
+			<li><a href="index.php?show=place-view"> Places </a></li>
+			<li><a href="index.php?show=room-view"> Rooms </a></li>
+			<li><a href="index.php?show=user-view"> Users </a></li>
+			<li><a href="index.php?show=logout"> Logout </a></li>
 		</ul>
 	</div>
 	

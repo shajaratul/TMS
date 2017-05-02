@@ -64,6 +64,7 @@
 			<li><a href="index.php?show=place-view"> Places </a></li>
 			<li><a href="index.php?show=room-view"> Rooms </a></li>
 			<li><a href="index.php?show=user-view"> Users </a></li>
+			<li><a href="index.php?show=logout"> Logout </a></li>
 		</ul>
 
 	</div>
