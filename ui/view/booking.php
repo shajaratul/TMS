@@ -1,6 +1,34 @@
 <?php
-var_dump(file_get_contents('php://input'));
-var_dump($GLOBALS);
+	if(!isset($fromController)){
+		header('HTTP/1.1 403 Not Authorized');
+		echo "<h1>403 - Not Authorized </h1> <br/>";
+		exit;
+	}
+?>
+
+<?php
+	session_start();
+	
+	$roomName = $_SESSION['bookingDetails']['roomName'];
+	$roomPrice = $_SESSION['bookingDetails']['roomPrice'];
+	$roomCapacity = $_SESSION['bookingDetails']['roomCapacity'];
+	$checkIn = $_SESSION['bookingDetails']['checkIn'];
+	$checkOut = $_SESSION['bookingDetails']['checkOut'];
+	$personNumber = $_SESSION['bookingDetails']['personNumber'];
+	
+	$_checkIn = DateTime::createFromFormat('d-M-Y', $checkIn);
+	$_checkOut = DateTime::createFromFormat('d-M-Y', $checkOut);
+	$_duration = $_checkOut->diff($_checkIn);
+	
+	$duration = $_duration->format('%a');
+	
+	$_roomNeeded = $personNumber/$roomCapacity;
+	$roomNeeded = round($_roomNeeded, 0, PHP_ROUND_HALF_UP);
+	
+	$totalPrice = $roomPrice * $duration * $roomNeeded;
+	
+	
+	
 ?>
 
 <html>
@@ -11,55 +39,24 @@ var_dump($GLOBALS);
 <body>
 	<h1> Add Booking </h1>
 	<fieldset>
-	<form action="./index.php">
+	<form action="index.php">
 		<fieldset>
 			<legend> Booking Details </legend>
 			<table border="0" width="100%">
 				<tr>
-					<td><h3> Deluxe Double Bedroom </h3></td>
+					<td><h3> <?php echo $roomName; ?> </h3></td>
 					<td> </td>
-					<td> <h3> tk.XX,XXX/- </h3> </td>
+					<td> <h3> Tk.<?php echo $roomPrice; ?>/- Per Night </h3> </td>
 				</tr>
 				<tr>
-					<td> <p> Check in 27-02-2015 </p> </td>
+					<td> <p> Check in <?php echo $checkIn; ?> </p> </td>
 				</tr>
 				<tr>
-					<td> <p> Check out 02-03-2015 </p> </td>
+					<td> <p> Check out <?php echo $checkOut; ?> </p> </td>
 				<tr>
-					<td> <p> 1 night(s) - 1 person(s) </p> </td>
+					<td> <p> <?php echo $duration; ?> night(s) - <?php echo $personNumber; ?> person(s) - <?php echo $roomNeeded; ?> room(s) </p> </td>
 				</tr>
 			</table>
-			</fieldset>
-			
-			<fieldset>
-				<legend> Extra Services </legend>
-				<table border="0" width="100%">
-				<tr>
-					<td> <input type="checkbox" value="tour"> Guided Tour </input> </td>
-					<td> </td>
-					<td> <p> tk.XXXX/- </p> </td>
-				</tr>
-				<tr>
-					<td> <input type="checkbox" value="carrent"> Car Renting </input> </td>
-					<td> </td>
-					<td> <p> tk.XXXX/- </p> </td>
-				</tr>
-				<tr>
-					<td> <input type="checkbox" value="bikerent">  Quadbike Renting </input> </td>
-					<td> </td>
-					<td> <p> tk.XXXX/- </p> </td>
-				</tr>
-				<tr>
-					<td> <input type="checkbox" value="swimrent"> Swiming Gear Renting </input> </td>
-					<td> </td>
-					<td> <p> tk.XXXX/- </p> </td>
-				</tr>
-				<tr>
-					<td> <input type="checkbox" value="boatrent"> Speedboat Renting </input> </td>
-					<td> </td>
-					<td> <p> tk.XXXX/- </p> </td>
-				</tr>
-				</table>
 			</fieldset>
 			
 			<fieldset>
@@ -67,7 +64,7 @@ var_dump($GLOBALS);
 				<table border="0" width="280%">
 					<tr>
 						<td> <h3> Total: </h3> </td>
-						<td> <h3> tk.XX,XXX/- </h3> </td>
+						<td> <h3> tk.<?php echo $totalPrice; ?>/- </h3> </td>
 					</tr>
 					
 					<tr>
@@ -75,9 +72,9 @@ var_dump($GLOBALS);
 						<td>
 							<input type="radio" name="payment" value="self"> Pay when checking in </input>
 							<br/>
-							<input type="radio" name="payment" value="easy"> Pay with your ATM card </input>
+							<input type="radio" name="payment" value="easy" disabled='disabled'> Pay with your ATM card </input>
 							<br/>
-							<input type="radio" name="payment" value="bkash"> Pay with bKash/Rocket </input>
+							<input type="radio" name="payment" value="bkash" disabled='disabled'> Pay with bKash/Rocket </input>
 							<br/>
 							<br/>
 						</td>
