@@ -2,7 +2,7 @@
 
 <?php
 	function addUserToDb($user){  //this function adds user to the database through signup page
-		$query = "INSERT INTO users(name, email, contactno, password, usertype) VALUES ('$user[firstName]', '$user[lastName]', '$user[email]', '$user[contactNo]', '$user[password]', $user[userType])";
+		$query = "INSERT INTO users(name, email, contactno, password, usertype) VALUES ('$user[name]', '$user[email]', '$user[contactNo]', '$user[password]', $user[userType])";
 		return executeNonQuery($query);
 	}
 	
@@ -46,6 +46,16 @@
 			$userid = mysqli_fetch_assoc($result);
 		}
 		return $userid;
+	}
+	
+	function getUserTypeByIdFromDb($id){
+		$query = "SELECT usertype FROM users WHERE userid=$id";  
+		$result = executeQuery($query);	
+		$usertype = null;
+		if($result){
+			$usertype = mysqli_fetch_assoc($result);
+		}
+		return $usertype;
 	}
 	
 	function addPlaceToDb($place){ //adds a holiday destination to db. Rooms are assigned to a place. Admin only feature

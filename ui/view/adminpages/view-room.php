@@ -59,17 +59,34 @@
 
 	<div>	
 		<ul>
-			<li><a href="#"> Support Tickets</a></li>
-			<li><a href="#"> Holiday Packages </a></li>
-			<li><a href="#"> Bookings </a></li>
-			<li><a href="#"> Places </a></li>
-			<li><a href="#"> Rooms </a></li>
-			<li><a href="#"> Users </a></li>
+			<li><a href="index.php?show=ticket-view"> Support Tickets</a></li>
+			<li><a href="index.php?show=booking-view"> Bookings </a></li>
+			<li><a href="index.php?show=place-view"> Places </a></li>
+			<li><a href="index.php?show=room-view"> Rooms </a></li>
+			<li><a href="index.php?show=user-view"> Users </a></li>
 		</ul>
+
 	</div>
 	
 	<div id="dashboard">
-		<p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p><p> Lorem Ipsum </p>
+		<fieldset>
+			<legend> Users </legend>
+				<table>
+					<tr>
+						<td> Room ID </td>
+						<td> Place ID </td>
+						<td> Name </td>
+						<td> Host </td>
+						<td> Description</td>
+						<td> Details </td>
+						<td> Capacity</td>
+						<td> Price </td>
+						<td> Add </td>
+						<td> Edit </td>
+						<td> Remove </td>
+					</tr>
+				</table>
+		</fieldset>
 	</div>
 	
 	</div>

@@ -14,7 +14,7 @@ else if (sizeof($queryArray) > 0){
 	$queryKey = array_keys($queryArray)[0];
 	$queryValue = $queryArray[$queryKey];
 	
-	$queryPortion = explode("_", $queryValue);
+	$queryPortion = explode("-", $queryValue);
 	
 	if(count($queryPortion) == 1){
 		$fromController = true;
@@ -22,9 +22,9 @@ else if (sizeof($queryArray) > 0){
 		include_once(APP_ROOT."/ui/controller/default_controller.php");
 	}
 	else if (count($queryPortion) == 2){
-		$fromcontroller = true;
+		$fromController = true;
 		$controller = $queryPortion[0];
-		$view = $queryPortion[0];
+		$view = $queryPortion[1];
 		include_once(APP_ROOT."/ui/controller/".$controller."_controller.php");
 	}
 	else{

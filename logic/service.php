@@ -22,6 +22,10 @@
 		return getUserByLoginFromDb($login);
 	}
 	
+	function getUserTypeById($id){
+		return getUserTypeByIdFromDb($id);
+	}
+	
 	
 	function getAllPlaces(){
 		return getAllPlacesFromDb();
