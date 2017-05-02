@@ -5,6 +5,36 @@
 		exit;
 	}
 ?>
+
+<?php
+	session_start();
+	
+	$loggedIn = false;
+	
+	if(isset($_SESSION['id'])){
+		$loggedIn = true;
+	}
+	
+	if($loggedIn){
+		$navbar = '<ul>
+						<li><a href="index.php?show=logout"> Sign out </a></li>
+						<li><a href="index.php?show=profile"> Profile </a></li>
+						<li><a href="index.php?show=contact"> Contact </a></li>
+						<li><a href="#page-2"> Places </a></li>
+						<li><a href="#"> Home </a></li>
+					</ul>';
+	}
+	else{
+		$navbar = '<ul>
+						<li><a href="index.php?show=signup"> Sign UP </a></li>
+						<li><a href="index.php?show=login"> Login </a></li>
+						<li><a href="index.php?show=contact"> Contact </a></li>
+						<li><a href="#page-2"> Places </a></li>
+						<li><a href="#"> Home </a></li>
+					</ul>';
+	}
+	
+?>
 <html>
 <head>
 	<title> TMS Home Page </title>
@@ -17,15 +47,8 @@
 		<div>
 			<h1 id="site-header"> Travel.com </h1>
 			
-			<div class="site-nav">
-			<ul>
-				<li><a href="index.php?show=signup"> Sign UP </a></li>
-				<li><a href="index.php?show=login"> Login </a></li>
-				<li><a href="index.php?show=contact"> Contact </a></li>
-				<li><a href="#page-3"> Holiday Packages </a></li>
-				<li><a href="#page-2"> Places </a></li>
-				<li><a href="#"> Home </a></li>
-			</ul>
+			<div class="site-nav" id="navbar">
+				<?php echo $navbar; ?>
 			</div>
 		</div>
 		
@@ -94,12 +117,14 @@
 <?php
 
 	if($_SERVER['REQUEST_METHOD']=="POST"){
-	
-		session_start();
 		
-		$keyword = trim($_REQUEST['keyword']);
-		$_SESSION['keyword'] = $keyword;
-		header("location: index.php?show=search");
+		if($loggedIn){
+			$keyword = trim($_REQUEST['keyword']);
+			$_SESSION['keyword'] = $keyword;
+			header("location: index.php?show=search");
+		}
+		else
+			echo "<script> alert('Please Login First.');</script>";
 		
 	}
 	

@@ -77,24 +77,24 @@
 		}
 		
 		function init(){
-			for(var i=0; i<rooms.length; i++){
-				document.getElementById("canvas").innerHTML += sr_frame;
-				document.getElementsByTagName("form")[i].setAttribute("id", "form"+i);
-				document.getElementsByClassName("title")[i].innerHTML = rooms[i].name;
-				document.getElementsByClassName("host")[i].innerHTML = rooms[i].host;
-				document.getElementsByClassName("desc")[i].innerHTML = rooms[i].description;
-				document.getElementsByClassName("capacity")[i].innerHTML = "Capacity: " + rooms[i].capacity + " person(s)";
-				document.getElementsByClassName("price")[i].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
-				document.getElementsByName("submit")[i].setAttribute("onclick", "doBooking("+i+")");
+			// for(var i=0; i<rooms.length; i++){
+				// document.getElementById("canvas").innerHTML += sr_frame;
+				// document.getElementsByTagName("form")[i].setAttribute("id", "form"+i);
+				// document.getElementsByClassName("title")[i].innerHTML = rooms[i].name;
+				// document.getElementsByClassName("host")[i].innerHTML = rooms[i].host;
+				// document.getElementsByClassName("desc")[i].innerHTML = rooms[i].description;
+				// document.getElementsByClassName("capacity")[i].innerHTML = "Capacity: " + rooms[i].capacity + " person(s)";
+				// document.getElementsByClassName("price")[i].innerHTML = "Price: tk." + rooms[i].price + "/- per night";
+				// document.getElementsByName("submit")[i].setAttribute("onclick", "doBooking("+i+")");
 				
-				document.getElementsByName("roomId")[i].value = rooms[i].roomid;
-				document.getElementsByName("roomName")[i].value = rooms[i].name;
-				document.getElementsByName("roomPrice")[i].value = rooms[i].price;
-				document.getElementsByName("roomCapacity")[i].value = rooms[i].capacity;
-				document.getElementsByName("checkIn")[i].value = document.getElementById("checkin").value;
-				document.getElementsByName("checkOut")[i].value = document.getElementById("checkout").value;
-				document.getElementsByName("personNumber")[i].value = document.getElementById("personNumber").value;
-			}
+				// document.getElementsByName("roomId")[i].value = rooms[i].roomid;
+				// document.getElementsByName("roomName")[i].value = rooms[i].name;
+				// document.getElementsByName("roomPrice")[i].value = rooms[i].price;
+				// document.getElementsByName("roomCapacity")[i].value = rooms[i].capacity;
+				// document.getElementsByName("checkIn")[i].value = document.getElementById("checkin").value;
+				// document.getElementsByName("checkOut")[i].value = document.getElementById("checkout").value;
+				// document.getElementsByName("personNumber")[i].value = document.getElementById("personNumber").value;
+			// }
 		}
 
 		
