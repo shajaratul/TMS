@@ -38,9 +38,14 @@
 		return getRoomsByPlaceIdFromDb($placeId);
 	}
 	
+	function addBooking($booking){
+		return addBookingToDb($booking);
+	}
+	
 	function getBookingByRoomId($id){
 		return getBookingByRoomIdFromDb($id);
 	}
+	
 	
 	
 	

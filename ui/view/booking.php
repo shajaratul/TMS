@@ -70,11 +70,11 @@
 					<tr>
 						<td> <h4> Payment Method </h4> </td>
 						<td>
-							<input type="radio" name="payment" value="self"> Pay when checking in </input>
+							<input type="radio" name="payment" value="0"> Pay when checking in </input>
 							<br/>
-							<input type="radio" name="payment" value="easy" disabled='disabled'> Pay with your ATM card </input>
+							<input type="radio" name="payment" value="1" disabled='disabled'> Pay with your ATM card </input>
 							<br/>
-							<input type="radio" name="payment" value="bkash" disabled='disabled'> Pay with bKash/Rocket </input>
+							<input type="radio" name="payment" value="2" disabled='disabled'> Pay with bKash/Rocket </input>
 							<br/>
 							<br/>
 						</td>
@@ -95,3 +95,24 @@
 	</fieldset>
 </body>
 </html>
+
+<?php
+if($_SERVER['REQUEST_METHOD']=="POST"){
+	
+	$bkng = array();
+	$bkng['userid'] = $_SESSION['id'];
+	$bkng['roomid'] = $_SESSION['bookingDetails']['roomId']
+	$bkng['checkin'] = $checkIn;
+	$bkng['checkout'] = $checkOut;
+	$bkng['person'] = $personNumber;
+	$bkng['total'] = $totalPrice;
+	$bkng['payment_method'] = 0;
+	$bkng['requests'] = $_REQUEST['specialres'];
+	
+	addBooking($bkng);
+
+}
+?>
+
+
+?>
