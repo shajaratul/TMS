@@ -1,6 +1,6 @@
 	<div class="frame">
 		<div class="content">
-			<form action="index?show=booking">
+			<form method="post">
 				<div style="padding-left:20px;padding-right:20px">
 					<img width="80%" src="ui/images/deluxe-double-room.jpg"/>
 					<h2 class="title"></h2>
@@ -8,10 +8,21 @@
 					<h4 class="desc"></h4>
 					<h4 class="capacity"></h4>
 					<h3 class="price"></h3>
+					
+					<input type="hidden" name="roomId">
+					<input type="hidden" name="roomName">
+					<input type="hidden" name="roomPrice">
+					<input type="hidden" name="roomCapacity">
+					<input type="hidden" name="checkIn">
+					<input type="hidden" name="checkOut">
+					<input type="hidden" name="personNumber">
+					
+					
 					<div style="float:right;padding-right:80px">
-						<input type="button" name="getDetails" value="read more"/>
-						<input type="button" name="submit" value="Book"/>
+						<input type="button" name="getDetails" value="read more" onclick="openModal()"/>
+						<input type="submit" name="submit" value="book" onclick="test()"/>
 					</div>
+					
 				</div>
 			</form>
 		</div>

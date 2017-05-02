@@ -69,6 +69,7 @@ define('DELETE_FILES', true);
  */
 define('EXCLUDE', serialize(array(
 	'.git',
+	'data_access.php',
 )));
 
 /**
