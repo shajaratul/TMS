@@ -107,7 +107,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 	
 	if($userid != null){
 		$_SESSION['id'] = $userid['userid'];
-		header("location: index.php?show=home");
+		$usertype = getUserTypeById($userid['userid']);
+		if($usertype['usertype'] == 1)
+			header("location: index.php?show=ticket-view");
+		else
+			header("location: index.php?show=home");
 	}
 	else
 		header("location: index.php?show=login");
